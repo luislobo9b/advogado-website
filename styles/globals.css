@@ -114,8 +114,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Altura do cabeçalho fixo — usada como offset de âncoras. */
-  --navbar-size: 4rem;
+  /* Altura do cabeçalho fixo (h-20) — usada como offset de âncoras. */
+  --navbar-size: 5rem;
 
   /*
    * Dourado para TEXTO e ícones. Sobre superfícies claras o dourado de marca

@@ -1,25 +1,66 @@
+"use client"
+
+import { usePathname } from "next/navigation"
+
+import { useSyncExternalStore } from "react"
+
 import { LuArrowUpRight } from "react-icons/lu"
 
 import { cn } from "cn"
 
-import { MobileNav } from "@/components/mobile-nav"
 import { PillButton } from "@/components/pill-button"
+import { SiteNav, SiteNavMobile } from "@/components/site-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-import {
-  NAV_LINKS,
-  SITE,
-  WHATSAPP_LINK_PROPS,
-} from "@/lib/site"
+import { SITE, WHATSAPP_LINK_PROPS } from "@/lib/site"
+
+/** Rolagem mínima para o cabeçalho deixar de ser transparente. */
+const SCROLL_THRESHOLD = 150
+
+/**
+ * O hero escuro só existe na página inicial. É a única página em que o
+ * cabeçalho pode ficar transparente — nas demais o fundo é claro e o texto
+ * claro do cabeçalho ficaria ilegível.
+ */
+const HOME_PATHNAME = "/"
+
+function subscribeToScroll(onStoreChange: () => void) {
+  window.addEventListener("scroll", onStoreChange, { passive: true })
+
+  return () => {
+    window.removeEventListener("scroll", onStoreChange)
+  }
+}
+
+function getScrollState() {
+  return window.scrollY > SCROLL_THRESHOLD
+}
+
+function getServerScrollState() {
+  return false
+}
 
 type SiteHeaderProps = React.ComponentProps<"header">
 
 function SiteHeader({ className, ...props }: SiteHeaderProps) {
+  const pathname = usePathname()
+
+  const isScrolled = useSyncExternalStore(
+    subscribeToScroll,
+    getScrollState,
+    getServerScrollState
+  )
+
+  const isTransparent = pathname === HOME_PATHNAME && !isScrolled
+
   return (
     <header
       data-slot="site-header"
       className={cn(
-        "surface-ink fixed inset-x-0 top-0 z-50 h-(--navbar-size) border-b border-border/60 bg-ink/85 backdrop-blur-xl",
+        "surface-ink fixed inset-x-0 top-0 z-50 h-20 border-b transition-colors duration-400",
+        isTransparent
+          ? "border-transparent bg-transparent"
+          : "border-border/60 bg-ink/85 backdrop-blur-xl",
         className
       )}
       {...props}
@@ -32,30 +73,14 @@ function SiteHeader({ className, ...props }: SiteHeaderProps) {
       </a>
 
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-5 md:px-8 lg:px-16">
-        <a href="#inicio" className="flex flex-col leading-none">
+        <a href="#inicio" className="leading-none">
           <span className="font-heading text-lg font-semibold text-foreground">
             {SITE.name}
             <span className="text-gold">.</span>
           </span>
-          <span className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
-            {SITE.role}
-          </span>
         </a>
 
-        <nav
-          aria-label="Navegação principal"
-          className="hidden items-center gap-7 lg:flex"
-        >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <SiteNav />
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
@@ -74,7 +99,7 @@ function SiteHeader({ className, ...props }: SiteHeaderProps) {
             Vamos conversar
           </PillButton>
 
-          <MobileNav />
+          <SiteNavMobile />
         </div>
       </div>
     </header>
