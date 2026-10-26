@@ -170,3 +170,20 @@
   );
 }
 /* /tailwind-extended-typography-scale.css */
+
+/* enhanced-scroll-area.css */
+@theme inline {
+  --color-scrollbar-thumb: var(--scrollbar-thumb);
+  --color-scrollbar-thumb-hover: var(--scrollbar-thumb-hover);
+}
+:root {
+  --scrollbar-size: calc(var(--spacing) \* 2.5);
+  --scrollbar-thumb: oklch(0.866 0 0);
+  --scrollbar-thumb-hover: oklch(0.75 0 0);
+}
+
+.dark {
+  --scrollbar-thumb: oklch(1 0 0 / 15%);
+  --scrollbar-thumb-hover: oklch(1 0 0 / 25%);
+}
+/* /enhanced-scroll-area.css */
