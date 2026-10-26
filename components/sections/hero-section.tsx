@@ -11,8 +11,11 @@ import { Heading, Paragraph } from "@/components/typography"
 
 import { WHATSAPP_LINK_PROPS } from "@/lib/site"
 
+const HERO_GLOW =
+  "bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-40 mix-blend-lighten contrast-200"
+
 const HERO_BACKGROUND =
-  "https://images.unsplash.com/photo-1505664194779-8beaceb93744"
+  "https://images.unsplash.com/photo-1747792607295-ada93d1b320c"
 
 const HERO_PORTRAIT =
   "https://images.unsplash.com/photo-1560250097-0b93528c311a"
@@ -21,13 +24,15 @@ type HeroSectionProps = React.ComponentProps<"section">
 
 function HeroSection({ className, ...props }: HeroSectionProps) {
   const CLASSES = {
-    section: cn("relative grid min-h-dvh place-items-center overflow-hidden"),
+    section: cn(
+      "relative isolate grid min-h-dvh place-items-center overflow-hidden"
+    ),
     colors: cn("surface-ink bg-background text-foreground"),
     container: cn(
-      "container mx-auto max-w-7xl grid grid-cols-1 items-center md:grid-cols-2"
+      "container mx-auto grid max-w-7xl grid-cols-1 items-center md:grid-cols-2"
     ),
     spacing: cn(
-      "gap-14 px-5 pt-(--navbar-size) pb-20 md:px-8 md:pb-28 lg:px-16 lg:gap-20 lg:pb-36"
+      "gap-14 px-5 pt-(--navbar-size) pb-20 md:px-8 md:pb-28 lg:gap-20 lg:px-16 lg:pb-36"
     ),
   }
 
@@ -38,6 +43,17 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <div className="absolute top-0 left-0">
+        <div
+          className={cn("absolute -top-75 -left-75 h-150 w-150", HERO_GLOW)}
+        />
+      </div>
+
+      <div
+        className={cn("absolute -right-75 -bottom-0 h-150 w-150", HERO_GLOW)}
+      />
+
+      <div className="absolute -top-35 -left-35 h-100 w-100 bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-3 mix-blend-lighten contrast-200" />
       <div aria-hidden className="absolute inset-0 -z-10">
         <Image
           src={HERO_BACKGROUND}
@@ -45,9 +61,9 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
           fill
           preload
           sizes="100vw"
-          className="object-cover opacity-30"
+          className="bg-right object-cover opacity-100 brightness-100 contrast-150"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-ink/90 via-ink/80 to-ink" />
+        <div className="absolute inset-0 bg-linear-to-b from-ink/95 via-ink/75 to-ink" />
       </div>
 
       <div
