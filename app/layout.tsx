@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google"
 
-import "./globals.css"
+import "@/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
