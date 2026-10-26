@@ -15,7 +15,7 @@ function WhatsAppButton({ className }: WhatsAppButtonProps) {
     <PillButton
       {...WHATSAPP_LINK_PROPS}
       data-slot="whatsapp-button"
-      aria-label="Falar com o advogado Pedro Lucas no WhatsApp"
+      aria-label="Falar no WhatsApp com o advogado Pedro Lucas"
       className={cn(
         "fixed right-4 bottom-4 z-40 shadow-lg shadow-ink/20 md:right-6 md:bottom-6",
         className

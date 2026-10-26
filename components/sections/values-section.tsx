@@ -98,6 +98,7 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
               return (
                 <Item
                   key={value.title}
+                  role="listitem"
                   variant="outline"
                   className="items-start gap-4 rounded-none border-0 border-b border-border px-0 py-6"
                 >

@@ -4,6 +4,7 @@ import { LuMail, LuMapPin, LuMessageCircle, LuScale } from "react-icons/lu"
 
 import { cn } from "cn"
 
+import { Paragraph } from "@/components/typography"
 import { Separator } from "@/components/ui/separator"
 
 import {
@@ -31,9 +32,9 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
           <span className="font-heading text-subtitle font-semibold">
             {SITE.name}
           </span>
-          <p className="max-w-xs text-body-sm text-muted-foreground">
+          <Paragraph size="sm" className="m-0 max-w-xs">
             {SITE.tagline}
-          </p>
+          </Paragraph>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -93,16 +94,22 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
             {PROFESSIONAL.oab}
           </span>
 
-          <p className="text-body-sm text-muted-foreground/70">{PENDING_NOTICE}</p>
+          <Paragraph size="sm" className="m-0 text-muted-foreground/70">
+            {PENDING_NOTICE}
+          </Paragraph>
         </div>
       </div>
 
       <Separator />
 
-      <div className="container mx-auto max-w-7xl flex flex-col gap-4 px-5 pt-8 pb-24 text-body-sm text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-16 lg:pb-8">
-        <p>
+      {/*
+        * `pb-20` no desktop reserva a faixa do botão fixo do WhatsApp:
+        * sem isso, o botão cobre o link "Política de privacidade".
+        */}
+      <div className="container mx-auto max-w-7xl flex flex-col gap-4 px-5 pt-8 pb-24 text-body-sm text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-16 lg:pb-20">
+        <Paragraph size="sm" className="m-0">
           © {year} {SITE.name} — {SITE.role}. Todos os direitos reservados.
-        </p>
+        </Paragraph>
 
         <Link
           href="/privacidade"
