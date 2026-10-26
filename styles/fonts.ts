@@ -1,24 +1,31 @@
-import { Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, Inter, Playfair_Display } from "next/font/google"
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
 })
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
+  variable: "--font-geist-mono",
+  display: "swap",
 })
 
 const fontClassNames = [
   "antialiased",
-  "font-sans",
   inter.variable,
+  playfairDisplay.variable,
   geistMono.variable,
 ] as const
 
-export { inter, geistMono, fontClassNames }
+export { inter, playfairDisplay, geistMono, fontClassNames }

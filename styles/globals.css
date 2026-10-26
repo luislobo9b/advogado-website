@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-playfair);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -23,6 +24,7 @@
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
+  --color-gold-accent: var(--gold-accent);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -47,31 +49,62 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * Marca do Pedro Lucas — tokens independentes de tema.
+ * `ink` e `paper` descrevem superfícies autorais (hero, rodapé, surfaces escuras),
+ * por isso não recebem variante `dark:` e convivem com os tokens semânticos.
+ */
+@theme {
+  --color-ink: #17130f;
+  --color-ink-soft: #292118;
+  --color-paper: #faf8f3;
+  --color-gold: #cba64a;
+  --color-gold-light: #e4c875;
+
+  /* Escala tipográfica — DESIGN.md §3 */
+  --text-display: clamp(3.5rem, 11vw, 9rem);
+  --text-display--line-height: 0.94;
+  --text-title: clamp(2.7rem, 6vw, 5.8rem);
+  --text-title--line-height: 1.02;
+  --text-section: clamp(2rem, 4vw, 3.5rem);
+  --text-section--line-height: 1.08;
+  --text-subtitle: 1.5rem;
+  --text-subtitle--line-height: 1.25;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.4;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+}
+
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #faf8f3;
+  --foreground: #24211d;
+  --card: #ffffff;
+  --card-foreground: #24211d;
+  --popover: #ffffff;
+  --popover-foreground: #24211d;
+  --primary: #17130f;
+  --primary-foreground: #faf8f3;
+  --secondary: #efeae0;
+  --secondary-foreground: #24211d;
+  --muted: #efeae0;
+  --muted-foreground: #5a544b;
+  --accent: #efeae0;
+  --accent-foreground: #24211d;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #e6e0d5;
+  --input: #e6e0d5;
+  --ring: #17130f;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -80,27 +113,37 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Altura do cabeçalho fixo — usada como offset de âncoras. */
+  --navbar-size: 4rem;
+
+  /*
+   * Dourado para TEXTO e ícones. Sobre superfícies claras o dourado de marca
+   * (#CBA64A) fica abaixo de 3:1, então aqui usamos um tom mais escuro
+   * (4.75:1 sobre paper, 5.05:1 sobre branco).
+   */
+  --gold-accent: #8a6a1f;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #211c17;
+  --foreground: #faf8f3;
+  --card: #2a241e;
+  --card-foreground: #faf8f3;
+  --popover: #211c17;
+  --popover-foreground: #faf8f3;
+  --primary: #e4c875;
+  --primary-foreground: #211c17;
+  --secondary: #332c25;
+  --secondary-foreground: #faf8f3;
+  --muted: #332c25;
+  --muted-foreground: #a8a29a;
+  --accent: #332c25;
+  --accent-foreground: #faf8f3;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: #e4c875;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -114,6 +157,37 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Sobre superfícies escuras o dourado claro tem contraste ample. */
+  --gold-accent: #e4c875;
+}
+
+/*
+ * Superfície escura autoral (hero, rodapé, cards e blocos sobre `ink`).
+ * Reaproveita os tokens semânticos do tema para que qualquer componente do
+ * projeto continue legível e coerente sem variantes ad-hoc.
+ */
+.surface-ink {
+  --background: #211c17;
+  --foreground: #faf8f3;
+  --card: #2a241e;
+  --card-foreground: #faf8f3;
+  --popover: #211c17;
+  --popover-foreground: #faf8f3;
+  --primary: #e4c875;
+  --primary-foreground: #17130f;
+  --secondary: #332c25;
+  --secondary-foreground: #faf8f3;
+  --muted: #332c25;
+  --muted-foreground: #b8b0a3;
+  --accent: #332c25;
+  --accent-foreground: #faf8f3;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: #e4c875;
+
+  /* Sobre superfícies escuras o dourado claro tem contraste ample. */
+  --gold-accent: #e4c875;
 }
 
 @layer base {
@@ -129,6 +203,27 @@
   }
   html {
     @apply font-sans;
+    scroll-padding-top: var(--navbar-size);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  /*
+   * Com movimento reduzido o conteúdo aparece imediatamente: a animação de
+   * entrada é um reforço visual, nunca uma condição para ler o conteúdo
+   * (DESIGN.md §6).
+   */
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="reveal"] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 }
 
