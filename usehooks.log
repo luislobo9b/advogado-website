@@ -1,0 +1,27 @@
+﻿cmd : npm notice run advogado-website@0.0.1 npx
+No linha:1 caractere:162
++ ... g]::ASCII); cmd /c "cd /d $dir && npx usehooks-cli@latest init < answ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run ...bsite@0.0.1 npx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run usehooks init
+­ƒÜÇ Initializing usehooks in your project...
+
+­ƒôï Project Detection:
+   Framework: react
+   Structure: root
+   TypeScript: Ô£à
+   Tailwind: ÔØî
+   Package Manager: npm
+
+ÔÜÖ´©Å  Configuration:
+[2K[1G[36m?[39m [1mWhere would you like to store your hooks?[22m [90m┬╗[39m [90m./hooks[39m78[2K[1G[2K[1G[32mÔêÜ[39m [1mWhere would you like to store your hooks?[22m [90m...[39m ./hooks78
+[?25h
+[?25h
+[?25h
+[?25h
+[?25h
+[?25h
+[?25h
+[?25h[2K[1G[36m?[39m [1mWhere is your utils file?[22m [90m┬╗[39m [90m./lib/utils[39m78
