@@ -3,20 +3,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const inlineCodeVariants = cva(
-  "relative mb-3 rounded bg-black/7.5 px-1 py-2 font-mono text-gray-700 dark:bg-white/7.5 dark:text-gray-300",
+  "rounded bg-muted px-1.5 py-0.5 font-mono text-foreground",
   {
     variants: {
       variant: {
-        muted: "bg-muted text-gray-500 dark:text-gray-500",
+        muted: "bg-muted text-muted-foreground",
         outline: "border border-border bg-transparent",
       },
       size: {
-        sm: "text-sm",
-        base: "text-base",
-        lg: "text-lg",
-        xl: "text-xl",
-        "2xl": "text-2xl",
+        sm: "text-body-sm",
+        base: "text-body",
+        lg: "text-body-lg",
       },
+    },
+    defaultVariants: {
+      size: "base",
     },
   }
 )
@@ -27,6 +28,7 @@ type InlineCodeProps = React.ComponentProps<"code"> &
 function InlineCode({ className, variant, size, ...props }: InlineCodeProps) {
   return (
     <code
+      data-slot="inline-code"
       className={cn(inlineCodeVariants({ variant, size }), className)}
       {...props}
     />

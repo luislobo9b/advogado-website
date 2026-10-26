@@ -4,25 +4,27 @@ import { cn } from "cn"
 
 type ListTypes = "ul" | "ol"
 
-const customMarkerBase = `ml-2 list-none [&>li]:relative [&>li]:pl-4 [&>li]:before:absolute [&>li]:before:left-[-4]`
+const customMarkerBase =
+  "list-none [&>li]:relative [&>li]:pl-5 [&>li]:before:absolute [&>li]:before:left-0"
 
 const listVariants = cva(
-  "mb-3 ml-6 text-gray-700 dark:text-gray-300 [&>li]:mb-1.5",
+  "mb-3 ml-5 text-muted-foreground [&>li]:mb-1.5",
   {
     variants: {
       marker: {
         disc: "list-disc",
         decimal: "list-decimal",
-        dash: `${customMarkerBase} [&>li]:before:content-['—']`,
-        check: `${customMarkerBase} [&>li]:before:text-malachite-400 [&>li]:before:font-bold [&>li]:before:content-['✓']`,
+        dash: `${customMarkerBase} [&>li]:before:content-['–']`,
+        check: `${customMarkerBase} [&>li]:before:font-semibold [&>li]:before:text-gold [&>li]:before:content-['✓']`,
       },
       size: {
-        sm: "text-sm",
-        base: "text-base",
-        lg: "text-lg",
-        xl: "text-xl",
-        "2xl": "text-2xl",
+        sm: "text-body-sm",
+        base: "text-body",
+        lg: "text-body-lg",
       },
+    },
+    defaultVariants: {
+      size: "base",
     },
   }
 )
@@ -38,11 +40,8 @@ function List({ as = "ul", className, marker, size, ...props }: ListProps) {
 
   return (
     <Component
-      className={cn(
-        as === "ol" ? "list-decimal" : "list-disc",
-        listVariants({ marker, size }),
-        className
-      )}
+      data-slot="list"
+      className={cn(listVariants({ marker, size }), className)}
       {...props}
     />
   )
