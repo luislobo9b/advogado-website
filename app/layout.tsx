@@ -1,8 +1,8 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, Inter } from "next/font/google"
 
 import "@/styles/globals.css"
 import { GlobalProviders } from "@/providers/global-providers"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -11,7 +11,7 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
-export default function RootLayout({
+function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -33,3 +33,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout
