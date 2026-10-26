@@ -1,8 +1,7 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google"
 
 import "@/styles/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TooltipProvider } from "@/components/ui/tooltip"
+import { GlobalProviders } from "@/providers/global-providers"
 import { cn } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
@@ -29,9 +28,7 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>
-          <TooltipProvider>{children}</TooltipProvider>
-        </ThemeProvider>
+        <GlobalProviders>{children}</GlobalProviders>
       </body>
     </html>
   )
