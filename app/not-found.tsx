@@ -2,10 +2,10 @@ import Link from "next/link"
 
 import { LuArrowLeft } from "react-icons/lu"
 
-import { SiteFooter } from "@/components/site-footer"
-import { SiteHeader } from "@/components/site-header"
 import { pillButtonVariants } from "@/components/pill-button"
 import { SectionEyebrow } from "@/components/section-eyebrow"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
 import { Heading, Paragraph } from "@/components/typography"
 
 export const metadata = {
