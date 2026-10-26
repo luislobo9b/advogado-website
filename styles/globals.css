@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -131,3 +131,42 @@
     @apply font-sans;
   }
 }
+
+/* tailwind-extended-typography-scale.css */
+@theme {
+  --text-1xl: var(--text-xl);
+  --text-1\.5xl: calc((var(--text-xl) + var(--text-2xl)) / 2);
+  --text-2\.5xl: calc((var(--text-2xl) + var(--text-3xl)) / 2);
+  --text-3\.5xl: calc((var(--text-3xl) + var(--text-4xl)) / 2);
+  --text-4\.5xl: calc((var(--text-4xl) + var(--text-5xl)) / 2);
+  --text-5\.5xl: calc((var(--text-5xl) + var(--text-6xl)) / 2);
+  --text-6\.5xl: calc((var(--text-6xl) + var(--text-7xl)) / 2);
+  --text-7\.5xl: calc((var(--text-7xl) + var(--text-8xl)) / 2);
+  --text-8\.5xl: calc((var(--text-8xl) + var(--text-9xl)) / 2);
+  --text-1xl--line-height: var(--text-xl--line-height);
+  --text-1\.5xl--line-height: calc(
+    (var(--text-xl--line-height) + var(--text-2xl--line-height)) / 2
+  );
+  --text-2\.5xl--line-height: calc(
+    (var(--text-2xl--line-height) + var(--text-3xl--line-height)) / 2
+  );
+  --text-3\.5xl--line-height: calc(
+    (var(--text-3xl--line-height) + var(--text-4xl--line-height)) / 2
+  );
+  --text-4\.5xl--line-height: calc(
+    (var(--text-4xl--line-height) + var(--text-5xl--line-height)) / 2
+  );
+  --text-5\.5xl--line-height: calc(
+    (var(--text-5xl--line-height) + var(--text-6xl--line-height)) / 2
+  );
+  --text-6\.5xl--line-height: calc(
+    (var(--text-6xl--line-height) + var(--text-7xl--line-height)) / 2
+  );
+  --text-7\.5xl--line-height: calc(
+    (var(--text-7xl--line-height) + var(--text-8xl--line-height)) / 2
+  );
+  --text-8\.5xl--line-height: calc(
+    (var(--text-8xl--line-height) + var(--text-9xl--line-height)) / 2
+  );
+}
+/* /tailwind-extended-typography-scale.css */
