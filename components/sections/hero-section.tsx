@@ -9,6 +9,8 @@ import { Reveal } from "@/components/reveal"
 import { Heading, Paragraph } from "@/components/typography"
 import { TextGlowEffect } from "../text-glow-effect"
 
+import WaveDivider from "@/components/wave-divider"
+
 const HERO_GLOW =
   "bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-40 mix-blend-lighten contrast-200"
 
@@ -20,9 +22,14 @@ const HERO_PORTRAIT_MOBILE = "/images/person-mobile.webp"
 type HeroSectionProps = React.ComponentProps<"section">
 
 function HeroSection({ className, ...props }: HeroSectionProps) {
+  const personPosition = cn(
+    `min-h-[calc(100dvh+1.5rem)] lg:min-h-[calc(100dvh+3rem)]`
+  )
+
   const CLASSES = {
     section: cn(
-      "relative isolate grid min-h-dvh place-items-center overflow-hidden"
+      "relative isolate grid place-items-center overflow-hidden",
+      personPosition
     ),
     colors: cn("surface-ink bg-background text-foreground"),
     container: cn(
@@ -68,7 +75,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
         data-slot="hero-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <div className="xs:mb-5 order-2 mb-20 grid grid-cols-1 place-items-center md:mb-10">
+        <div className="xs:mb-5 order-2 mb-20 grid grid-cols-1 place-items-center md:mb-15">
           <div>
             <Reveal className="mb-5" delay={DELAY * 1}>
               <TextGlowEffect color="rgba(0, 0, 0, 0.33)">
@@ -107,7 +114,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
         <div className="right-[4vw] bottom-0 order-1 xl:absolute 2xl:right-[5.5vw]">
           <Reveal delay={0.12}>
             <Image
-              className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[85dvh] xl:max-w-full"
+              className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[95dvh] xl:max-w-full"
               src={HERO_PORTRAIT}
               alt="Fotografia ilustrativa de um profissional em traje social"
               width={1218}
@@ -123,6 +130,27 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
           </Reveal>
         </div>
       </div>
+
+      <WaveDivider
+        className="absolute bottom-0 z-1 h-6 w-full lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [5, 95],
+          backgroundColor: "transparent",
+          shapeColor: "var(--foreground)",
+        }}
+      />
+      <WaveDivider
+        className="absolute bottom-0 z-1 hidden h-6 w-full lg:h-12 dark:block"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [5, 95],
+          backgroundColor: "transparent",
+          shapeColor: "var(--background)",
+        }}
+      />
     </section>
   )
 }
