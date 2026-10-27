@@ -64,7 +64,7 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
             />
           </Reveal>
 
-          <Reveal variant="scaleIn" delay={0.1}>
+          <Reveal delay={0.1}>
             <div className="relative aspect-3/2 overflow-hidden rounded-3xl">
               <Image
                 src={PROCESS_IMAGE}

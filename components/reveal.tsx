@@ -6,44 +6,19 @@ import { motion } from "motion/react"
 
 import { cn } from "cn"
 
-import {
-  fadeIn,
-  fadeUp,
-  scaleIn,
-  staggerContainer,
-} from "@/styles/animations"
-
-const VARIANTS = {
-  fadeUp,
-  fadeIn,
-  scaleIn,
-  stagger: staggerContainer,
-}
-
-type RevealVariant = keyof typeof VARIANTS
-
-type RevealProps = Omit<React.ComponentProps<typeof motion.div>, "variants"> & {
-  variant?: RevealVariant
-  /** Atraso, em segundos, aplicado à entrada do conteúdo. */
+type RevealProps = React.ComponentProps<typeof motion.div> & {
   delay?: number
 }
 
-function Reveal({
-  variant = "fadeUp",
-  delay = 0,
-  className,
-  children,
-  ...props
-}: RevealProps) {
+function Reveal({ delay = 0, className, children, ...props }: RevealProps) {
   return (
     <motion.div
       data-slot="reveal"
       className={cn(className)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0, margin: "0px 0px -80px 0px" }}
-      custom={delay}
-      variants={VARIANTS[variant]}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: "easeOut", delay }}
       {...props}
     >
       {children}

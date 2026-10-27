@@ -113,7 +113,7 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
           </Reveal>
         </div>
 
-        <Reveal variant="scaleIn" delay={0.1}>
+        <Reveal delay={0.1}>
           <div className="relative aspect-3/4 overflow-hidden rounded-3xl">
             <Image
               src={ABOUT_PORTRAIT}

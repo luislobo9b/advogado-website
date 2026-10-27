@@ -65,7 +65,7 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
           </Reveal>
         </div>
 
-        <Reveal variant="scaleIn" delay={0.1}>
+        <Reveal delay={0.1}>
           <Card className="rounded-3xl border-border/70 bg-background shadow-none">
             <CardContent className="flex flex-col gap-6 p-8">
               <Heading as="h3" size="sm" className="m-0">
