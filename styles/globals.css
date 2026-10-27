@@ -214,17 +214,6 @@
       scroll-behavior: smooth;
     }
   }
-  /*
-   * Com movimento reduzido o conteúdo aparece imediatamente: a animação de
-   * entrada é um reforço visual, nunca uma condição para ler o conteúdo
-   * (DESIGN.md §6).
-   */
-  @media (prefers-reduced-motion: reduce) {
-    [data-slot="reveal"] {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
 }
 
 /* tailwind-extended-typography-scale.css */
