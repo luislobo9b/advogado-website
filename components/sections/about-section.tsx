@@ -1,15 +1,14 @@
-﻿import Image from "next/image"
+﻿import { cn } from "cn"
 
 import { LuClock, LuHandshake, LuLock } from "react-icons/lu"
 
-import { cn } from "cn"
-
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
-import { Paragraph } from "@/components/typography"
-
-const ABOUT_PORTRAIT =
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+import { Heading, Paragraph } from "@/components/typography"
+import {
+  ScrollProgressChars,
+  ScrollProgressGroup,
+} from "@/components/ui/scroll-text"
+import WaveDivider from "../wave-divider"
 
 const HIGHLIGHTS = [
   {
@@ -32,18 +31,16 @@ const HIGHLIGHTS = [
   },
 ] as const
 
+const DELAY = 0.4
+
 type AboutSectionProps = React.ComponentProps<"section">
 
 function AboutSection({ className, ...props }: AboutSectionProps) {
   const CLASSES = {
-    section: cn("grid min-h-dvh place-items-center"),
+    section: cn("relative grid min-h-dvh place-items-center"),
     colors: cn("bg-background text-foreground"),
-    container: cn(
-      "container mx-auto max-w-7xl grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
-    ),
-    spacing: cn(
-      "gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"
-    ),
+    container: cn("container mx-auto grid max-w-7xl grid-cols-1 items-center"),
+    spacing: cn("px-5 py-6 md:px-8 md:py-12 lg:px-16 lg:py-18"),
   }
 
   return (
@@ -55,77 +52,73 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
     >
       <div
         data-slot="about-section-container"
-        className={cn(CLASSES.container, CLASSES.spacing)}
+        className={cn(CLASSES.container, CLASSES.spacing, "text-center")}
       >
-        <div className="flex flex-col gap-6">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Sobre mim"
-              title={
-                <>
-                  Um advogado de verdade, do{" "}
-                  <em className="text-gold-accent italic">outro lado da mesa</em>.
-                </>
-              }
-            />
-          </Reveal>
+        <ScrollProgressGroup className="mb-10">
+          <ScrollProgressChars>
+            <Heading className="inline max-w-2xl text-pretty italic" as="h2">
+              Um advogado de verdade, do <br className="hidden md:block" />
+              <span className="text-gold">outro lado da mesa.</span>
+            </Heading>
 
-          <Reveal delay={0.08}>
-            <div className="flex flex-col gap-4">
-              <Paragraph tone="strong">
-                Sou Pedro Lucas, advogado. Atendo pessoas que estão diante de
-                um problema jurídico e precisam entender, antes de tudo, o que
-                está acontecendo.
-              </Paragraph>
+            <Paragraph className="mt-5 xl:text-1.5xl">
+              Sou Pedro Lucas, advogado. Atendo pessoas que estão diante de um
+              problema jurídico e precisam entender, antes de tudo, o que está
+              acontecendo. Meu trabalho é traduzir o processo: explicar as
+              opções, dizer quanto custa, apontar prazos e riscos reais. Atendo
+              com tempo para ouvir, porque pressa só produz erro. Quando um caso
+              não faz sentido — ou não combina com os meus princípios — eu digo
+              isso na hora. Prefiro recusar a prometer o que não posso cumprir.
+            </Paragraph>
+          </ScrollProgressChars>
+        </ScrollProgressGroup>
 
-              <Paragraph>
-                Meu trabalho é traduzir o processo: explicar as opções, dizer
-                quanto custa, apontar prazos e riscos reais. Atendo com tempo
-                para ouvir, porque pressa só produz erro.
-              </Paragraph>
+        <Reveal delay={DELAY}>
+          <div className="flex flex-col items-center gap-8 md:flex-row md:gap-4">
+            {HIGHLIGHTS.map((highlight) => {
+              const Icon = highlight.icon
 
-              <Paragraph>
-                Quando um caso não faz sentido — ou não combina com os meus
-                princípios — eu digo isso na hora. Prefiro recusar a prometer o
-                que não posso cumprir.
-              </Paragraph>
-            </div>
-          </Reveal>
+              return (
+                <div className="flex items-center" key={highlight.title}>
+                  <div>
+                    <Icon className="mx-auto size-15 text-center text-gold-accent" />
 
-          <Reveal delay={0.16}>
-            <ul className="mt-4 grid gap-6 sm:grid-cols-3">
-              {HIGHLIGHTS.map((highlight) => {
-                const Icon = highlight.icon
-
-                return (
-                  <li key={highlight.title} className="flex flex-col gap-3">
-                    <Icon className="size-5 text-gold-accent" />
-                    <span className="font-heading text-subtitle text-foreground">
-                      {highlight.title}
-                    </span>
-                    <Paragraph size="sm" className="m-0">
-                      {highlight.description}
-                    </Paragraph>
-                  </li>
-                )
-              })}
-            </ul>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.1}>
-          <div className="relative aspect-3/4 overflow-hidden rounded-3xl">
-            <Image
-              src={ABOUT_PORTRAIT}
-              alt="Fotografia ilustrativa de um profissional em ambiente claro"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 rounded-3xl ring-1 ring-foreground/10 ring-inset" />
+                    <div>
+                      <span className="mt-4 mb-2 block font-heading text-subtitle text-foreground">
+                        {highlight.title}
+                      </span>
+                      <Paragraph size="sm" className="m-0">
+                        {highlight.description}
+                      </Paragraph>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </Reveal>
       </div>
+
+      <WaveDivider
+        className="absolute bottom-0 z-1 h-6 w-full lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [95, 5],
+          backgroundColor: "transparent",
+          shapeColor: "white",
+        }}
+      />
+      <WaveDivider
+        className="absolute bottom-0 z-1 hidden h-6 w-full lg:h-12 dark:block"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [95, 5],
+          backgroundColor: "transparent",
+          shapeColor: "white",
+        }}
+      />
     </section>
   )
 }
