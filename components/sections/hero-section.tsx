@@ -4,21 +4,18 @@ import { LuArrowUpRight } from "react-icons/lu"
 
 import { cn } from "cn"
 
-import { PillButton } from "@/components/pill-button"
+import { pillButtonVariants } from "@/components/pill-button"
 import { Reveal } from "@/components/reveal"
-import { SectionEyebrow } from "@/components/section-eyebrow"
 import { Heading, Paragraph } from "@/components/typography"
-
-import { WHATSAPP_LINK_PROPS } from "@/lib/site"
+import { TextGlowEffect } from "../text-glow-effect"
 
 const HERO_GLOW =
   "bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-40 mix-blend-lighten contrast-200"
 
-const HERO_BACKGROUND =
-  "https://images.unsplash.com/photo-1747792607295-ada93d1b320c"
+const HERO_BACKGROUND = "/images/books.jpg"
 
-const HERO_PORTRAIT =
-  "https://images.unsplash.com/photo-1560250097-0b93528c311a"
+const HERO_PORTRAIT = "/images/person.webp"
+const HERO_PORTRAIT_MOBILE = "/images/person-mobile.webp"
 
 type HeroSectionProps = React.ComponentProps<"section">
 
@@ -29,12 +26,12 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
     ),
     colors: cn("surface-ink bg-background text-foreground"),
     container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 items-center md:grid-cols-2"
+      "container mx-auto grid max-w-7xl grid-cols-1 items-stretch xl:grid-cols-2"
     ),
-    spacing: cn(
-      "gap-14 px-5 pt-(--navbar-size) pb-20 md:px-8 md:pb-28 lg:gap-20 lg:px-16 lg:pb-36"
-    ),
+    spacing: cn("gap-8 px-5 pt-(--navbar-size) lg:gap-20 xl:gap-14"),
   }
+
+  const DELAY = 0.4
 
   return (
     <section
@@ -50,10 +47,11 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
       </div>
 
       <div
-        className={cn("absolute -right-75 -bottom-0 h-150 w-150", HERO_GLOW)}
+        className={cn("absolute -right-75 bottom-0 h-150 w-150", HERO_GLOW)}
       />
 
       <div className="absolute -top-35 -left-35 h-100 w-100 bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-3 mix-blend-lighten contrast-200" />
+
       <div aria-hidden className="absolute inset-0 -z-10">
         <Image
           src={HERO_BACKGROUND}
@@ -70,56 +68,60 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
         data-slot="hero-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <div className="flex flex-col items-start gap-6">
-          <Reveal>
-            <SectionEyebrow>Advogado · atendimento direto</SectionEyebrow>
-          </Reveal>
+        <div className="xs:mb-5 order-2 mb-20 grid grid-cols-1 place-items-center md:mb-10">
+          <div>
+            <Reveal className="mb-5" delay={DELAY * 1}>
+              <TextGlowEffect color="rgba(0, 0, 0, 0.33)">
+                <Heading as="h1">
+                  Direito explicado <br />
+                  em{" "}
+                  <Reveal className="inline" delay={DELAY * 2}>
+                    <em className="text-gold italic">palavras simples</em>
+                  </Reveal>
+                </Heading>
+              </TextGlowEffect>
+            </Reveal>
 
-          <Reveal delay={0.08}>
-            <Heading as="h1" size="display" className="max-w-3xl">
-              Direito explicado em{" "}
-              <em className="text-gold-accent italic">palavras simples</em>
-            </Heading>
-          </Reveal>
+            <Reveal className="mb-5" delay={DELAY * 3}>
+              <Paragraph>
+                Atendo de forma direta e personalizada. Explico o que está
+                acontecendo, quanto custa e como cada etapa funciona — sem
+                juridiquês e sem promessas que eu não possa cumprir.
+              </Paragraph>
+            </Reveal>
 
-          <Reveal delay={0.16}>
-            <Paragraph className="max-w-xl">
-              Atendo de forma direta e personalizada. Explico o que está
-              acontecendo, quanto custa e como cada etapa funciona — sem
-              juridiquês e sem promessas que eu não possa cumprir.
-            </Paragraph>
-          </Reveal>
-
-          <Reveal delay={0.24}>
-            <div className="flex flex-wrap items-center gap-5">
-              <PillButton {...WHATSAPP_LINK_PROPS} size="lg">
-                Falar no WhatsApp
-                <LuArrowUpRight className="size-4" />
-              </PillButton>
-
-              <a
-                href="#sobre"
-                className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
-              >
-                Conhecer o trabalho
-              </a>
-            </div>
-          </Reveal>
+            <Reveal delay={DELAY * 4}>
+              <div className="flex flex-wrap items-center gap-5">
+                <a
+                  href="#sobre"
+                  className={cn(pillButtonVariants({ size: "lg" }))}
+                >
+                  Conhecer o trabalho
+                  <LuArrowUpRight className="size-4" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
-        <Reveal variant="scaleIn" delay={0.12}>
-          <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
+        <div className="right-[4vw] bottom-0 order-1 xl:absolute 2xl:right-[5.5vw]">
+          <Reveal delay={0.12}>
             <Image
+              className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[85dvh] xl:max-w-full"
               src={HERO_PORTRAIT}
               alt="Fotografia ilustrativa de um profissional em traje social"
-              fill
-              preload
-              sizes="(max-width: 768px) 100vw, 45vw"
-              className="object-cover"
+              width={1218}
+              height={1292}
             />
-            <div className="absolute inset-0 rounded-3xl ring-1 ring-foreground/15 ring-inset" />
-          </div>
-        </Reveal>
+            <Image
+              className="mx-auto block w-auto max-w-4/5 object-cover md:max-w-3/5 lg:max-w-1/2 xl:hidden xl:max-h-[85dvh] xl:max-w-full"
+              src={HERO_PORTRAIT_MOBILE}
+              alt="Fotografia ilustrativa de um profissional em traje social"
+              width={1218}
+              height={1292}
+            />
+          </Reveal>
+        </div>
       </div>
     </section>
   )
