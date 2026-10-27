@@ -15,7 +15,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { SITE, WHATSAPP_LINK_PROPS } from "@/lib/site"
 
 /** Rolagem mínima para o cabeçalho deixar de ser transparente. */
-const SCROLL_THRESHOLD = 150
+const SCROLL_THRESHOLD = 64
 
 /**
  * O hero escuro só existe na página inicial. É a única página em que o
