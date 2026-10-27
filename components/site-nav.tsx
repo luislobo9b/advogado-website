@@ -51,7 +51,7 @@ function SiteNav({ className, ...props }: SiteNavProps) {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "text-muted-foreground hover:text-foreground"
+                "text-md text-muted-foreground hover:text-foreground"
               )}
               href={link.href}
             >
