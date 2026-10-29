@@ -104,7 +104,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
                   className={cn(pillButtonVariants({ size: "lg" }))}
                 >
                   Conhecer o trabalho
-                  <LuArrowUpRight className="size-4" />
+                  <LuArrowUpRight className="size-5" />
                 </a>
               </div>
             </Reveal>

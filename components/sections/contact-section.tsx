@@ -54,7 +54,7 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
               size="lg"
             >
               Falar no WhatsApp
-              <LuArrowUpRight className="size-4" />
+              <LuArrowUpRight className="size-5" />
             </PillButton>
           </Reveal>
 
@@ -79,7 +79,7 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
                   return (
                     <li key={item.label} className="flex items-start gap-4">
                       <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-gold-accent">
-                        <Icon className="size-4" />
+                        <Icon className="size-5" />
                       </span>
 
                       <span className="flex flex-col gap-0.5">

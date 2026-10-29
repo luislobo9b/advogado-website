@@ -21,7 +21,7 @@ function WhatsAppButton({ className }: WhatsAppButtonProps) {
         className
       )}
     >
-      <LuMessageCircle className="size-4" />
+      <LuMessageCircle className="size-5" />
       <span className="max-sm:sr-only">Falar no WhatsApp</span>
     </PillButton>
   )

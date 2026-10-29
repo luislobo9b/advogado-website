@@ -42,7 +42,7 @@ function NotFound() {
               className={pillButtonVariants({ size: "lg" })}
               data-slot="not-found-home-link"
             >
-              <LuArrowLeft className="size-4" />
+              <LuArrowLeft className="size-5" />
               Voltar para o início
             </Link>
           </div>

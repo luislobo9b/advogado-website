@@ -118,7 +118,7 @@ function SiteNavMobile({ className, ...props }: SiteNavMobileProps) {
 
         <SheetFooter>
           <PillButton {...WHATSAPP_LINK_PROPS} className="w-full">
-            <LuMessageCircle className="size-4" />
+            <LuMessageCircle className="size-5" />
             Falar no WhatsApp
           </PillButton>
         </SheetFooter>

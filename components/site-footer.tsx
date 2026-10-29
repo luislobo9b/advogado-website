@@ -46,7 +46,7 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
             {...WHATSAPP_LINK_PROPS}
             className="flex items-center gap-2 text-body-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
           >
-            <LuMessageCircle className="size-4 shrink-0 text-gold-accent" />
+            <LuMessageCircle className="size-5 shrink-0 text-gold-accent" />
             WhatsApp
           </a>
 
@@ -55,13 +55,13 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
               href={PROFESSIONAL_EMAIL_LINK}
               className="flex items-center gap-2 text-body-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
             >
-              <LuMail className="size-4 shrink-0 text-gold-accent" />
+              <LuMail className="size-5 shrink-0 text-gold-accent" />
               {PROFESSIONAL.email}
             </a>
           ) : null}
 
           <span className="flex items-start gap-2 text-body-sm text-muted-foreground">
-            <LuMapPin className="mt-0.5 size-4 shrink-0 text-gold-accent" />
+            <LuMapPin className="mt-0.5 size-5 shrink-0 text-gold-accent" />
             {PROFESSIONAL.address}
           </span>
         </div>
@@ -90,7 +90,7 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
           </span>
 
           <span className="flex items-center gap-2 text-body-sm text-muted-foreground">
-            <LuScale className="size-4 shrink-0 text-gold-accent" />
+            <LuScale className="size-5 shrink-0 text-gold-accent" />
             {PROFESSIONAL.oab}
           </span>
 

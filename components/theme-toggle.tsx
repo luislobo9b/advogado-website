@@ -43,7 +43,7 @@ function ThemeToggle({ className, ...props }: ThemeToggleProps) {
       aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
       {...props}
     >
-      {isDark ? <LuSun className="size-4" /> : <LuMoon className="size-4" />}
+      {isDark ? <LuSun className="size-5" /> : <LuMoon className="size-5" />}
     </Button>
   )
 }

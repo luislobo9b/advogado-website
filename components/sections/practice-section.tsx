@@ -94,7 +94,7 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
                       className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-gold-accent underline-offset-4 transition-colors hover:text-gold-light hover:underline"
                     >
                       Falar sobre isso
-                      <LuArrowUpRight className="size-4" />
+                      <LuArrowUpRight className="size-5" />
                     </a>
                   </CardContent>
                 </Card>
