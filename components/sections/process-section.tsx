@@ -39,7 +39,7 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
     section: cn("grid min-h-dvh place-items-center"),
     colors: cn("bg-background text-foreground"),
     container: cn(
-      "container mx-auto max-w-7xl grid grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20"
+      "container mx-auto grid max-w-7xl grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20"
     ),
     spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
   }

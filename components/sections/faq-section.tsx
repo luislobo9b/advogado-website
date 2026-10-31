@@ -49,7 +49,7 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
     section: cn("grid min-h-dvh place-items-center"),
     colors: cn("bg-background text-foreground"),
     container: cn(
-      "container mx-auto max-w-7xl grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20"
+      "container mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20"
     ),
     spacing: cn("gap-12 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
   }
@@ -80,7 +80,7 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
                 <AccordionTrigger className="font-heading text-2xl text-foreground hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="max-w-2xl text-muted-foreground">
+                <AccordionContent className="text-muted-foreground">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

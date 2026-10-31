@@ -27,7 +27,6 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
       className={cn("surface-ink bg-background text-foreground", className)}
       {...props}
     >
-      <div className="container mx-auto max-w-7xl grid grid-cols-1 gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-4 lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-4">
           <span className="font-heading text-2xl font-semibold">
             {SITE.name}
@@ -106,7 +105,6 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
         * `pb-20` no desktop reserva a faixa do botão fixo do WhatsApp:
         * sem isso, o botão cobre o link "Política de privacidade".
         */}
-      <div className="container mx-auto max-w-7xl flex flex-col gap-4 px-5 pt-8 pb-24 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-16 lg:pb-20">
         <Paragraph size="sm" className="m-0">
           © {year} {SITE.name} — {SITE.role}. Todos os direitos reservados.
         </Paragraph>

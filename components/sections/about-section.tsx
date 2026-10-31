@@ -56,7 +56,7 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
       >
         <ScrollProgressGroup className="mb-10">
           <ScrollProgressChars>
-            <Heading className="inline max-w-2xl text-pretty italic" as="h2">
+            <Heading className="inline italic" as="h2">
               Um advogado de verdade, do <br className="hidden md:block" />
               <span className="text-gold">outro lado da mesa.</span>
             </Heading>

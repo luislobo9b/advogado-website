@@ -42,7 +42,7 @@ function PrivacidadePage() {
       <SiteHeader />
 
       <main id="conteudo" className="pt-(--navbar-size)">
-        <div className="container mx-auto max-w-3xl px-5 py-20 md:px-8 md:py-28 lg:px-16">
+        <div className="container mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:px-16">
           <Heading as="h1" size="lg" className="mb-4">
             Política de privacidade
           </Heading>

@@ -24,7 +24,7 @@ function NotFound() {
           data-slot="not-found-section"
           className="grid min-h-dvh place-items-center bg-background text-foreground"
         >
-          <div className="container mx-auto flex max-w-2xl flex-col items-start gap-6 px-5 py-20 md:px-8 md:py-28 lg:px-16">
+          <div className="container mx-auto flex max-w-7xl flex-col items-start gap-6 px-5 py-20 md:px-8 md:py-28 lg:px-16">
             <SectionEyebrow>Erro 404</SectionEyebrow>
 
             <Heading as="h1" size="lg" className="m-0">
