@@ -8,12 +8,12 @@ const blockquoteVariants = cva(
     variants: {
       variant: {
         secondary: "bg-muted px-5 py-4",
-        pull: "border-l-0 border-transparent px-0 py-4 text-center text-subtitle not-italic",
+        pull: "border-l-0 border-transparent px-0 py-4 text-center text-2xl not-italic",
       },
       size: {
-        sm: "text-body-sm",
-        base: "text-body",
-        lg: "text-body-lg",
+        sm: "text-sm",
+        base: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {

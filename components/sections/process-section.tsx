@@ -84,7 +84,7 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
               <li key={step.title} className="flex gap-6">
                 <span
                   aria-hidden
-                  className="font-heading text-section shrink-0 text-gold-accent tabular-nums"
+                  className="shrink-0 font-heading text-5.5xl text-gold-accent tabular-nums"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>

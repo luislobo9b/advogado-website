@@ -29,7 +29,7 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
     >
       <div className="container mx-auto max-w-7xl grid grid-cols-1 gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-4 lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-4">
-          <span className="font-heading text-subtitle font-semibold">
+          <span className="font-heading text-2xl font-semibold">
             {SITE.name}
           </span>
           <Paragraph size="sm" className="m-0 max-w-xs">
@@ -38,13 +38,13 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="text-label tracking-[0.18em] text-muted-foreground uppercase">
+          <span className="text-sm tracking-[0.18em] text-muted-foreground uppercase">
             Atendimento
           </span>
 
           <a
             {...WHATSAPP_LINK_PROPS}
-            className="flex items-center gap-2 text-body-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
+            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
           >
             <LuMessageCircle className="size-5 shrink-0 text-gold-accent" />
             WhatsApp
@@ -53,21 +53,21 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
           {PROFESSIONAL_EMAIL_LINK ? (
             <a
               href={PROFESSIONAL_EMAIL_LINK}
-              className="flex items-center gap-2 text-body-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
+              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
             >
               <LuMail className="size-5 shrink-0 text-gold-accent" />
               {PROFESSIONAL.email}
             </a>
           ) : null}
 
-          <span className="flex items-start gap-2 text-body-sm text-muted-foreground">
+          <span className="flex items-start gap-2 text-sm text-muted-foreground">
             <LuMapPin className="mt-0.5 size-5 shrink-0 text-gold-accent" />
             {PROFESSIONAL.address}
           </span>
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="text-label tracking-[0.18em] text-muted-foreground uppercase">
+          <span className="text-sm tracking-[0.18em] text-muted-foreground uppercase">
             Navegação
           </span>
 
@@ -76,7 +76,7 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-body-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
+                className="text-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -85,11 +85,11 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
         </div>
 
         <div className="flex flex-col gap-4">
-          <span className="text-label tracking-[0.18em] text-muted-foreground uppercase">
+          <span className="text-sm tracking-[0.18em] text-muted-foreground uppercase">
             Identificação
           </span>
 
-          <span className="flex items-center gap-2 text-body-sm text-muted-foreground">
+          <span className="flex items-center gap-2 text-sm text-muted-foreground">
             <LuScale className="size-5 shrink-0 text-gold-accent" />
             {PROFESSIONAL.oab}
           </span>
@@ -106,7 +106,7 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
         * `pb-20` no desktop reserva a faixa do botão fixo do WhatsApp:
         * sem isso, o botão cobre o link "Política de privacidade".
         */}
-      <div className="container mx-auto max-w-7xl flex flex-col gap-4 px-5 pt-8 pb-24 text-body-sm text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-16 lg:pb-20">
+      <div className="container mx-auto max-w-7xl flex flex-col gap-4 px-5 pt-8 pb-24 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-16 lg:pb-20">
         <Paragraph size="sm" className="m-0">
           © {year} {SITE.name} — {SITE.role}. Todos os direitos reservados.
         </Paragraph>

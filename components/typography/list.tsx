@@ -18,9 +18,9 @@ const listVariants = cva(
         check: `${customMarkerBase} [&>li]:before:font-semibold [&>li]:before:text-gold [&>li]:before:content-['✓']`,
       },
       size: {
-        sm: "text-body-sm",
-        base: "text-body",
-        lg: "text-body-lg",
+        sm: "text-sm",
+        base: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {

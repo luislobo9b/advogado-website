@@ -11,9 +11,9 @@ const inlineCodeVariants = cva(
         outline: "border border-border bg-transparent",
       },
       size: {
-        sm: "text-body-sm",
-        base: "text-body",
-        lg: "text-body-lg",
+        sm: "text-sm",
+        base: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {

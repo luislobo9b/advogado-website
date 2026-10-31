@@ -11,10 +11,10 @@ const headingVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-subtitle tracking-tight",
-        base: "text-section tracking-[-0.02em]",
-        lg: "text-title tracking-[-0.035em]",
-        display: "text-display tracking-[-0.04em]",
+        sm: "text-2xl tracking-tight",
+        base: "text-5.5xl tracking-[-0.02em]",
+        lg: "text-7xl tracking-[-0.035em]",
+        display: "text-9xl tracking-[-0.04em]",
       },
     },
     defaultVariants: {

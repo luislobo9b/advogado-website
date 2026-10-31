@@ -110,10 +110,10 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
                   </ItemMedia>
 
                   <ItemContent className="gap-1">
-                    <ItemTitle className="font-heading text-subtitle text-foreground">
+                    <ItemTitle className="font-heading text-2xl text-foreground">
                       {value.title}
                     </ItemTitle>
-                    <ItemDescription className="text-body-sm text-muted-foreground">
+                    <ItemDescription className="text-sm text-muted-foreground">
                       {value.description}
                     </ItemDescription>
                   </ItemContent>

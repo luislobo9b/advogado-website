@@ -83,10 +83,10 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
                       </span>
 
                       <span className="flex flex-col gap-0.5">
-                        <span className="text-label tracking-[0.14em] text-muted-foreground uppercase">
+                        <span className="text-sm tracking-[0.14em] text-muted-foreground uppercase">
                           {item.label}
                         </span>
-                        <span className="text-body-sm text-foreground">
+                        <span className="text-sm text-foreground">
                           {item.value}
                         </span>
                       </span>

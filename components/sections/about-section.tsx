@@ -84,7 +84,7 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
                     <Icon className="mx-auto size-15 text-center text-gold-accent" />
 
                     <div>
-                      <span className="mt-4 mb-2 block font-heading text-subtitle text-foreground">
+                      <span className="mt-4 mb-2 block font-heading text-2xl text-foreground">
                         {highlight.title}
                       </span>
                       <Paragraph size="sm" className="m-0">

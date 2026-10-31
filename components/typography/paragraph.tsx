@@ -5,9 +5,9 @@ import { cn } from "cn"
 const paragraphVariants = cva("mb-3", {
   variants: {
     size: {
-      sm: "text-body-sm",
-      base: "text-body",
-      lg: "text-body-lg",
+      sm: "text-sm",
+      base: "text-base",
+      lg: "text-lg",
     },
     tone: {
       default: "text-muted-foreground",

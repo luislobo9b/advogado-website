@@ -9,7 +9,7 @@ function SectionEyebrow({ className, children, ...props }: SectionEyebrowProps) 
     <Paragraph
       size="sm"
       className={cn(
-        "mb-0 flex items-center gap-2.5 text-label font-medium tracking-[0.22em] uppercase text-muted-foreground",
+        "mb-0 flex items-center gap-2.5 text-sm font-medium tracking-[0.22em] uppercase text-muted-foreground",
         className
       )}
       {...props}

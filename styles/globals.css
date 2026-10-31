@@ -60,24 +60,6 @@
   --color-paper: #faf8f3;
   --color-gold: #cba64a;
   --color-gold-light: #e4c875;
-
-  /* Escala tipográfica — DESIGN.md §3 */
-  --text-display: clamp(3.5rem, 11vw, 9rem);
-  --text-display--line-height: 0.94;
-  --text-title: clamp(2.7rem, 6vw, 5.8rem);
-  --text-title--line-height: 1.02;
-  --text-section: clamp(2rem, 4vw, 3.5rem);
-  --text-section--line-height: 1.08;
-  --text-subtitle: 1.5rem;
-  --text-subtitle--line-height: 1.25;
-  --text-label: 0.875rem;
-  --text-label--line-height: 1.4;
-  --text-body-sm: 0.875rem;
-  --text-body-sm--line-height: 1.6;
-  --text-body: 1rem;
-  --text-body--line-height: 1.65;
-  --text-body-lg: 1.125rem;
-  --text-body-lg--line-height: 1.6;
 }
 
 :root {

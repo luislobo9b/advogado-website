@@ -77,7 +77,7 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
           <Accordion className="w-full">
             {FAQ_ITEMS.map((item) => (
               <AccordionItem key={item.question} value={item.question}>
-                <AccordionTrigger className="font-heading text-subtitle text-foreground hover:no-underline">
+                <AccordionTrigger className="font-heading text-2xl text-foreground hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="max-w-2xl text-muted-foreground">
