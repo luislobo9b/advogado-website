@@ -23,6 +23,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
+import WaveDivider from "@/components/wave-divider"
 
 const VALUES = [
   {
@@ -82,6 +83,17 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <WaveDivider
+        className="absolute top-0 z-1 h-6 w-full rotate-180 lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [95, 5],
+          backgroundColor: "transparent",
+          shapeColor: "var(--foreground)",
+        }}
+      />
+
       <div aria-hidden className="absolute inset-0 -z-10">
         <Image
           src={VALUES_BACKGROUND}
@@ -138,6 +150,17 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
           </ItemGroup>
         </Reveal>
       </div>
+
+      <WaveDivider
+        className="absolute bottom-0 z-1 h-6 w-full lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [95, 5],
+          backgroundColor: "transparent",
+          shapeColor: "var(--foreground)",
+        }}
+      />
     </section>
   )
 }

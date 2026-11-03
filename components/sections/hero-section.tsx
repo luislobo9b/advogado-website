@@ -8,11 +8,9 @@ import { pillButtonVariants } from "@/components/pill-button"
 import { Reveal } from "@/components/reveal"
 import { Heading, Paragraph } from "@/components/typography"
 import { TextGlowEffect } from "../text-glow-effect"
+import { GlowCircle } from "@/components/glow-circle"
 
 import WaveDivider from "@/components/wave-divider"
-
-const HERO_GLOW =
-  "bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-40 mix-blend-lighten contrast-200"
 
 const HERO_BACKGROUND = "/images/books.jpg"
 
@@ -47,26 +45,35 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
-      <div className="absolute top-0 left-0">
-        <div
-          className={cn("absolute -top-75 -left-75 h-150 w-150", HERO_GLOW)}
-        />
-      </div>
-
-      <div
-        className={cn("absolute -right-75 bottom-0 h-150 w-150", HERO_GLOW)}
+      <GlowCircle
+        className="absolute -top-75 -left-75 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
       />
 
-      <div className="absolute -top-35 -left-35 h-100 w-100 bg-[radial-gradient(circle_at_center,#996f3d_0%,transparent_70%)] opacity-3 mix-blend-lighten contrast-200" />
+      <GlowCircle
+        className="absolute -right-75 bottom-0 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
+      />
+
+      <GlowCircle
+        className="absolute -top-35 -left-35 h-100 w-100 opacity-3 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
+      />
 
       <div aria-hidden className="absolute inset-0 -z-10">
         <Image
           src={HERO_BACKGROUND}
           alt=""
-          fill
+          width={1673}
+          height={940}
           preload
-          sizes="100vw"
-          className="bg-right object-cover opacity-100 brightness-100 contrast-150"
+          className="absolute inset-0 h-full w-full bg-right object-cover opacity-100 brightness-100 contrast-150"
         />
         <div className="absolute inset-0 bg-linear-to-b from-ink/95 via-ink/75 to-ink" />
       </div>

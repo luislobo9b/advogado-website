@@ -5,6 +5,7 @@ import { cn } from "cn"
 import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { Heading, Paragraph } from "@/components/typography"
+import WaveDivider from "@/components/wave-divider"
 
 const PROCESS_IMAGE =
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72"
@@ -52,6 +53,17 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <WaveDivider
+        className="absolute top-0 z-1 h-6 w-full lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [5, 95],
+          backgroundColor: "white",
+          shapeColor: "var(--background)",
+        }}
+      />
+
       <div aria-hidden className="absolute inset-0 -z-10">
         <div
           className="absolute inset-0 h-full w-full opacity-100"

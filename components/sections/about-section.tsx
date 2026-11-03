@@ -8,7 +8,7 @@ import {
   ScrollProgressChars,
   ScrollProgressGroup,
 } from "@/components/ui/scroll-text"
-import WaveDivider from "../wave-divider"
+import WaveDivider from "@/components/wave-divider"
 
 const HIGHLIGHTS = [
   {
