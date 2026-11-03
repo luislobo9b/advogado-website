@@ -60,7 +60,7 @@ function SiteHeader({ className, ...props }: SiteHeaderProps) {
         "surface-ink fixed inset-x-0 top-0 z-50 h-20 border-b transition-colors duration-400",
         isTransparent
           ? "border-transparent bg-transparent"
-          : "border-border/60 bg-ink/85 backdrop-blur-xl",
+          : "border-border/60 bg-ink/70 backdrop-blur-[6px]",
         className
       )}
       {...props}

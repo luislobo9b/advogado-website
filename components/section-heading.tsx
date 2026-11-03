@@ -42,12 +42,7 @@ function SectionHeading({
       </Heading>
 
       {description ? (
-        <Paragraph
-          className={cn(
-            "max-w-2xl text-pretty",
-            align === "center" && "mx-auto"
-          )}
-        >
+        <Paragraph className={cn(align === "center" && "mx-auto")}>
           {description}
         </Paragraph>
       ) : null}

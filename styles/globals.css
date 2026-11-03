@@ -150,7 +150,7 @@
  * projeto continue legível e coerente sem variantes ad-hoc.
  */
 .surface-ink {
-  --background: #211c17;
+  --background: var(--color-ink);
   --foreground: #faf8f3;
   --card: #2a241e;
   --card-foreground: #faf8f3;
@@ -242,6 +242,7 @@
   --color-scrollbar-thumb: var(--scrollbar-thumb);
   --color-scrollbar-thumb-hover: var(--scrollbar-thumb-hover);
 }
+
 :root {
   --scrollbar-size: calc(var(--spacing) \* 2.5);
   --scrollbar-thumb: oklch(0.866 0 0);
