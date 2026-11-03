@@ -1,4 +1,6 @@
-﻿import {
+﻿import Image from "next/image"
+
+import {
   LuCalendarClock,
   LuGavel,
   LuHandshake,
@@ -8,6 +10,8 @@
 } from "react-icons/lu"
 
 import { cn } from "cn"
+
+const VALUES_BACKGROUND = "/images/judges-gavel.jpg"
 
 import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
@@ -63,8 +67,8 @@ type ValuesSectionProps = React.ComponentProps<"section">
 
 function ValuesSection({ className, ...props }: ValuesSectionProps) {
   const CLASSES = {
-    section: cn("grid min-h-dvh place-items-center"),
-    colors: cn("surface-ink bg-background text-foreground"),
+    section: cn("relative grid min-h-[105dvh] place-items-center"),
+    colors: cn("surface-ink bg-background/40 text-foreground"),
     container: cn(
       "container mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20"
     ),
@@ -78,6 +82,17 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <Image
+          src={VALUES_BACKGROUND}
+          alt=""
+          width={1600}
+          height={1067}
+          className="absolute inset-0 h-full w-full scale-x-[-1] object-cover opacity-100 brightness-110 contrast-130"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-ink/90 via-ink/70 to-ink" />
+      </div>
+
       <div
         data-slot="values-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}

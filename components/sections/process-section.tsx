@@ -8,6 +8,7 @@ import { Heading, Paragraph } from "@/components/typography"
 
 const PROCESS_IMAGE =
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72"
+const PROCESS_BACKGROUND = "/images/simple-bg.webp"
 
 const PROCESS_STEPS = [
   {
@@ -36,8 +37,8 @@ type ProcessSectionProps = React.ComponentProps<"section">
 
 function ProcessSection({ className, ...props }: ProcessSectionProps) {
   const CLASSES = {
-    section: cn("grid min-h-dvh place-items-center"),
-    colors: cn("bg-background text-foreground"),
+    section: cn("relative grid min-h-dvh place-items-center"),
+    colors: cn("bg-background/80 text-foreground"),
     container: cn(
       "container mx-auto grid max-w-7xl grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20"
     ),
@@ -51,6 +52,17 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 h-full w-full opacity-100"
+          style={{
+            backgroundImage: `url(${PROCESS_BACKGROUND})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "800px auto",
+          }}
+        />
+      </div>
+
       <div
         data-slot="process-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}

@@ -33,12 +33,14 @@ const HIGHLIGHTS = [
 
 const DELAY = 0.4
 
+const ABOUT_BACKGROUND = "/images/simple-bg.webp"
+
 type AboutSectionProps = React.ComponentProps<"section">
 
 function AboutSection({ className, ...props }: AboutSectionProps) {
   const CLASSES = {
     section: cn("relative grid min-h-dvh place-items-center"),
-    colors: cn("bg-background text-foreground"),
+    colors: cn("bg-background/80 text-foreground"),
     container: cn("container mx-auto grid max-w-7xl grid-cols-1 items-center"),
     spacing: cn("px-5 py-6 md:px-8 md:py-12 lg:px-16 lg:py-18"),
   }
@@ -50,6 +52,17 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 h-full w-full opacity-100"
+          style={{
+            backgroundImage: `url(${ABOUT_BACKGROUND})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "800px auto",
+          }}
+        />
+      </div>
+
       <div
         data-slot="about-section-container"
         className={cn(CLASSES.container, CLASSES.spacing, "text-center")}

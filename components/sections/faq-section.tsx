@@ -44,10 +44,12 @@ const FAQ_ITEMS = [
 
 type FaqSectionProps = React.ComponentProps<"section">
 
+const FAQ_BACKGROUND = "/images/simple-bg.webp"
+
 function FaqSection({ className, ...props }: FaqSectionProps) {
   const CLASSES = {
-    section: cn("grid min-h-dvh place-items-center"),
-    colors: cn("bg-background text-foreground"),
+    section: cn("relative grid min-h-dvh place-items-center"),
+    colors: cn("bg-background/85 text-foreground"),
     container: cn(
       "container mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20"
     ),
@@ -61,6 +63,17 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 h-full w-full opacity-100"
+          style={{
+            backgroundImage: `url(${FAQ_BACKGROUND})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "800px auto",
+          }}
+        />
+      </div>
+
       <div
         data-slot="faq-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
