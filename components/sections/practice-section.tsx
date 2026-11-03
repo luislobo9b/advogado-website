@@ -5,7 +5,6 @@ import { LuArrowUpRight } from "react-icons/lu"
 import { cn } from "cn"
 
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
 import { Heading, Paragraph } from "@/components/typography"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -56,12 +55,16 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
         data-slot="practice-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <Reveal>
-          <SectionHeading
-            eyebrow="Atuação"
-            title="Os problemas que mais chegam no primeiro contato."
-            description="A lista abaixo é geral e serve como ponto de partida. Se o seu caso não estiver aqui, converse comigo do mesmo jeito."
-          />
+        <Reveal className="w-full text-center">
+          <SectionEyebrow>Atuação</SectionEyebrow>
+          <Heading className="mb-2" as="h2">
+            Os problemas que mais <br className="hidden md:block" /> chegam no{" "}
+            <span className="text-gold">primeiro contato.</span>
+          </Heading>
+          <Paragraph>
+            A lista abaixo é geral e serve como ponto de partida. Se o seu caso
+            não estiver aqui, converse comigo do mesmo jeito.
+          </Paragraph>
         </Reveal>
 
         <Reveal delay={0.1}>

@@ -4,7 +4,7 @@ import { cn } from "cn"
 
 import { PillButton } from "@/components/pill-button"
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
+import { SectionEyebrow } from "@/components/section-eyebrow"
 import { Heading, Paragraph } from "@/components/typography"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -54,18 +54,19 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
       >
         <div className="flex flex-col items-start gap-6">
           <Reveal>
-            <SectionHeading
-              eyebrow="Contato"
-              title="Vamos conversar sobre o seu caso."
-              description="Descreva sua situação em poucas linhas. Eu respondo pessoalmente e, se eu puder ajudar, combinamos os próximos passos juntos."
-            />
+            <SectionEyebrow>Contato</SectionEyebrow>
+            <Heading className="mb-2" as="h2">
+              Vamos conversar <br className="hidden md:block" />{" "}
+              <span className="text-gold">sobre o seu caso</span>.
+            </Heading>
+            <Paragraph>
+              Descreva sua situação em poucas linhas. Eu respondo pessoalmente
+              e, se eu puder ajudar, combinamos os próximos passos juntos.
+            </Paragraph>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <PillButton
-              {...WHATSAPP_LINK_PROPS}
-              size="lg"
-            >
+            <PillButton {...WHATSAPP_LINK_PROPS} size="lg">
               Falar no WhatsApp
               <LuArrowUpRight className="size-5" />
             </PillButton>

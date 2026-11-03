@@ -3,7 +3,7 @@
 import { cn } from "cn"
 
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
+import { SectionEyebrow } from "@/components/section-eyebrow"
 import { Heading, Paragraph } from "@/components/typography"
 import WaveDivider from "@/components/wave-divider"
 
@@ -80,16 +80,20 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
         <div className="flex flex-col gap-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Passo a passo"
-              title="Como é a conversa, do primeiro contato ao fim."
-              description="Você nunca fica no escuro sobre o que está acontecendo nem sobre o que vai custar."
-            />
-          </Reveal>
+        <Reveal className="mb-8 w-full text-center xl:mb-12 xl:text-left">
+          <SectionEyebrow>Passo a passo</SectionEyebrow>
+          <Heading className="mb-2" as="h2">
+            Como é a conversa, do <br className="hidden md:block" />
+            <span className="text-gold">primeiro contato</span> ao fim.
+          </Heading>
 
           <Reveal delay={0.1}>
             <div className="relative aspect-3/2 overflow-hidden rounded-3xl">
+          <Paragraph className="text-1xl">
+            Você nunca fica no escuro sobre o que está acontecendo nem sobre o
+            que vai custar.
+          </Paragraph>
+        </Reveal>
               <Image
                 src={PROCESS_IMAGE}
                 alt="Fotografia ilustrativa de um ambiente de atendimento"

@@ -1,7 +1,8 @@
 import { cn } from "cn"
 
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
+import { SectionEyebrow } from "@/components/section-eyebrow"
+import { Heading, Paragraph } from "@/components/typography"
 import {
   Accordion,
   AccordionContent,
@@ -79,11 +80,15 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
         <Reveal>
-          <SectionHeading
-            eyebrow="Dúvidas"
-            title="Perguntas que aparecem antes da primeira conversa."
-            description="Se a sua dúvida não está aqui, pergunte direto no WhatsApp — respondemos sem compromisso."
-          />
+          <SectionEyebrow>Dúvidas</SectionEyebrow>
+          <Heading className="mb-2" as="h2">
+            Perguntas que aparecem antes da <br className="hidden md:block" />
+            <span className="text-gold">primeira conversa</span>.
+          </Heading>
+          <Paragraph>
+            Se a sua dúvida não está aqui, pergunte direto no WhatsApp —
+            respondemos sem compromisso.
+          </Paragraph>
         </Reveal>
 
         <Reveal delay={0.1}>

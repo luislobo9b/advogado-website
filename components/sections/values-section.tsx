@@ -14,7 +14,8 @@ import { cn } from "cn"
 const VALUES_BACKGROUND = "/images/judges-gavel.jpg"
 
 import { Reveal } from "@/components/reveal"
-import { SectionHeading } from "@/components/section-heading"
+import { SectionEyebrow } from "@/components/section-eyebrow"
+import { Heading, Paragraph } from "@/components/typography"
 import {
   Item,
   ItemContent,
@@ -110,11 +111,15 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
         <Reveal>
-          <SectionHeading
-            eyebrow="Valores"
-            title="O que você pode esperar de um atendimento comigo."
-            description="Princípios simples, escritos para que você saiba o que cobrar de mim."
-          />
+          <SectionEyebrow>Valores</SectionEyebrow>
+          <Heading className="mb-2" as="h2">
+            O que você pode esperar de um{" "}
+            <span className="text-gold">atendimento comigo</span>.
+          </Heading>
+          <Paragraph>
+            Princípios simples, escritos para que você saiba o que cobrar de
+            mim.
+          </Paragraph>
         </Reveal>
 
         <Reveal delay={0.1}>
