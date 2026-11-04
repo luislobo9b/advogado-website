@@ -9,6 +9,7 @@ import {
   ScrollProgressGroup,
 } from "@/components/ui/scroll-text"
 import WaveDivider from "@/components/wave-divider"
+import { globalContainerClasses } from "@/utils/globals"
 
 const HIGHLIGHTS = [
   {
@@ -41,7 +42,7 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
   const CLASSES = {
     section: cn("relative grid min-h-dvh place-items-center"),
     colors: cn("bg-background/80 text-foreground"),
-    container: cn("container mx-auto grid max-w-7xl grid-cols-1 items-center"),
+    container: cn(globalContainerClasses),
     spacing: cn("px-5 py-6 md:px-8 md:py-12 lg:px-16 lg:py-18"),
   }
 

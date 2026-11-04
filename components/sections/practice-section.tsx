@@ -7,6 +7,7 @@ import { cn } from "cn"
 import { Reveal } from "@/components/reveal"
 import { Heading, Paragraph } from "@/components/typography"
 import { Card, CardContent } from "@/components/ui/card"
+import { globalContainerClasses } from "@/utils/globals"
 
 const PRACTICE_AREAS = [
   {
@@ -38,10 +39,8 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
   const CLASSES = {
     section: cn("grid min-h-dvh place-items-center"),
     colors: cn("bg-card text-card-foreground"),
-    container: cn(
-      "container mx-auto max-w-7xl grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20"
-    ),
     spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    container: cn(globalContainerClasses),
   }
 
   return (

@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { globalContainerClasses } from "@/utils/globals"
 
 const FAQ_ITEMS = [
   {
@@ -49,12 +50,10 @@ const FAQ_BACKGROUND = "/images/simple-bg.webp"
 
 function FaqSection({ className, ...props }: FaqSectionProps) {
   const CLASSES = {
-    section: cn("relative grid min-h-dvh place-items-center"),
+    section: cn("relative grid place-items-center"),
     colors: cn("bg-background/85 text-foreground"),
-    container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20"
-    ),
     spacing: cn("gap-12 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    container: cn(globalContainerClasses, "xl:grid-cols-2"),
   }
 
   return (

@@ -9,6 +9,7 @@ import { Heading, Paragraph } from "@/components/typography"
 import { Card, CardContent } from "@/components/ui/card"
 
 import { LGPD_NOTICE, PROFESSIONAL, WHATSAPP_LINK_PROPS } from "@/lib/site"
+import { globalContainerClasses } from "@/utils/globals"
 
 const IDENTIFICATION = [
   { icon: LuScale, label: "Inscrição", value: PROFESSIONAL.oab },
@@ -22,12 +23,10 @@ const CONTACT_BACKGROUND = "/images/simple-bg.webp"
 
 function ContactSection({ className, ...props }: ContactSectionProps) {
   const CLASSES = {
-    section: cn("relative grid min-h-dvh place-items-center"),
+    section: cn("relative grid place-items-center"),
     colors: cn("bg-background/80 text-foreground"),
-    container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
-    ),
     spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    container: cn(globalContainerClasses, "xl:grid-cols-2"),
   }
 
   return (

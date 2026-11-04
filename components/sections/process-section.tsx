@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal"
 import { SectionEyebrow } from "@/components/section-eyebrow"
 import { Heading, Paragraph } from "@/components/typography"
 import WaveDivider from "@/components/wave-divider"
+import { globalContainerClasses } from "@/utils/globals"
 
 const PROCESS_IMAGE =
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72"
@@ -40,10 +41,8 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
   const CLASSES = {
     section: cn("relative grid min-h-dvh place-items-center"),
     colors: cn("bg-background/80 text-foreground"),
-    container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20"
-    ),
     spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    container: cn(globalContainerClasses, "grid-cols-[40%_60%] xl:grid-cols-2"),
   }
 
   return (

@@ -25,6 +25,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item"
 import WaveDivider from "@/components/wave-divider"
+import { globalContainerClasses } from "@/utils/globals"
 
 const VALUES = [
   {
@@ -71,10 +72,9 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
   const CLASSES = {
     section: cn("relative grid min-h-[105dvh] place-items-center"),
     colors: cn("surface-ink bg-background/40 text-foreground"),
-    container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20"
     ),
     spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    container: cn(globalContainerClasses, "xl:grid-cols-2"),
   }
 
   return (

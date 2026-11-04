@@ -11,6 +11,7 @@ import { TextGlowEffect } from "../text-glow-effect"
 import { GlowCircle } from "@/components/glow-circle"
 
 import WaveDivider from "@/components/wave-divider"
+import { globalContainerClasses } from "@/utils/globals"
 
 const HERO_BACKGROUND = "/images/books.jpg"
 
@@ -30,9 +31,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
       personPosition
     ),
     colors: cn("surface-ink bg-background text-foreground"),
-    container: cn(
-      "container mx-auto grid max-w-7xl grid-cols-1 items-stretch xl:grid-cols-2"
-    ),
+    container: cn(globalContainerClasses, "items-stretch xl:grid-cols-2"),
     spacing: cn("gap-8 px-5 pt-(--navbar-size) lg:gap-20 xl:gap-14"),
   }
 
