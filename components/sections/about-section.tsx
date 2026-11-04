@@ -1,6 +1,6 @@
-﻿import { cn } from "cn"
+﻿import Image from "next/image"
 
-import { LuClock, LuHandshake, LuLock } from "react-icons/lu"
+import { cn } from "cn"
 
 import { Reveal } from "@/components/reveal"
 import { Heading, Paragraph } from "@/components/typography"
@@ -13,19 +13,19 @@ import { globalContainerClasses } from "@/utils/globals"
 
 const HIGHLIGHTS = [
   {
-    icon: LuHandshake,
+    icon: "/images/icons/golden-handshake.webp",
     title: "Direto com você",
     description:
       "Você fala com quem está cuidando do seu caso. Sem central de atendimento e sem intermediário.",
   },
   {
-    icon: LuClock,
+    icon: "/images/icons/golden-clock.webp",
     title: "Custo antes de começar",
     description:
       "Honorários e escopo são definidos antes de qualquer assinatura, com valores explicados.",
   },
   {
-    icon: LuLock,
+    icon: "/images/icons/golden-padlock.webp",
     title: "Sigilo",
     description:
       "Tudo o que você conta em uma conversa ou por mensagem fica entre nós.",
@@ -46,14 +46,19 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
     spacing: cn("px-5 py-6 md:px-8 md:py-12 lg:px-16 lg:py-18"),
   }
 
+  const iconsSize = {
+    width: 1190,
+    height: 1177,
+  }
+
   return (
     <section
-      id="sobre"
       data-slot="about-section"
+      id="sobre"
       className={cn(CLASSES.section, CLASSES.colors, className)}
       {...props}
     >
-      <div aria-hidden className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10" aria-hidden>
         <div
           className="absolute inset-0 h-full w-full opacity-100"
           style={{
@@ -90,18 +95,25 @@ function AboutSection({ className, ...props }: AboutSectionProps) {
         <Reveal delay={DELAY}>
           <div className="flex flex-col items-center gap-8 md:flex-row md:gap-4">
             {HIGHLIGHTS.map((highlight) => {
-              const Icon = highlight.icon
-
               return (
                 <div className="flex items-center" key={highlight.title}>
                   <div>
-                    <Icon className="mx-auto size-15 text-center text-gold-accent" />
+                    <Image
+                      className="mx-auto size-15 h-48 w-auto text-center"
+                      src={highlight.icon}
+                      width={iconsSize.width / 2}
+                      height={iconsSize.height / 2}
+                      alt={highlight.title}
+                    />
 
                     <div>
-                      <span className="mt-4 mb-2 block font-heading text-2xl text-foreground">
+                      <span className="mt-4 mb-2 block font-heading text-3xl text-foreground">
                         {highlight.title}
                       </span>
-                      <Paragraph size="sm" className="m-0">
+                      <Paragraph
+                        className="m-0 mx-auto max-w-90 md:max-w-full"
+                        size="base"
+                      >
                         {highlight.description}
                       </Paragraph>
                     </div>
