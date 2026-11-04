@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 import { LGPD_NOTICE, PROFESSIONAL, WHATSAPP_LINK_PROPS } from "@/lib/site"
 import { globalContainerClasses } from "@/utils/globals"
+import WaveDivider from "@/components/wave-divider"
 
 const IDENTIFICATION = [
   { icon: LuScale, label: "Inscrição", value: PROFESSIONAL.oab },
@@ -111,6 +112,27 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
           </Card>
         </Reveal>
       </div>
+
+      <WaveDivider
+        className="absolute bottom-0 z-1 h-6 w-full lg:h-12 dark:hidden"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [5, 95],
+          backgroundColor: "transparent",
+          shapeColor: "var(--color-ink)",
+        }}
+      />
+      <WaveDivider
+        className="absolute bottom-0 z-1 hidden h-6 w-full lg:h-12 dark:block"
+        waveSettings={{
+          softStart: false,
+          softEnd: false,
+          points: [5, 95],
+          backgroundColor: "transparent",
+          shapeColor: "white",
+        }}
+      />
     </section>
   )
 }
