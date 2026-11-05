@@ -73,8 +73,8 @@ function SiteHeader({ className, ...props }: SiteHeaderProps) {
       </a>
 
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-5 md:px-8 lg:px-16">
-        <a href="#inicio" className="leading-none">
-          <span className="font-heading text-lg font-semibold text-foreground">
+        <a className="leading-none" href="#inicio">
+          <span className="font-heading text-xl font-semibold text-foreground">
             {SITE.name}
             <span className="text-gold">.</span>
           </span>

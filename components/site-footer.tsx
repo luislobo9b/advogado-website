@@ -8,7 +8,6 @@ import { Paragraph } from "@/components/typography"
 import { Separator } from "@/components/ui/separator"
 
 import {
-  NAV_LINKS,
   PENDING_NOTICE,
   PROFESSIONAL,
   PROFESSIONAL_EMAIL_LINK,
@@ -63,24 +62,6 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
             <LuMapPin className="mt-0.5 size-5 shrink-0 text-gold-accent" />
             {PROFESSIONAL.address}
           </span>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <span className="text-sm tracking-[0.18em] text-muted-foreground uppercase">
-            Navegação
-          </span>
-
-          <nav aria-label="Navegação do rodapé" className="flex flex-col gap-2">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground transition-colors duration-400 hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
         </div>
 
         <div className="flex flex-col gap-4">
