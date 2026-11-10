@@ -26,8 +26,8 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
   const CLASSES = {
     section: cn("relative grid place-items-center"),
     colors: cn("bg-background/80 text-foreground"),
-    spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
     container: cn(globalContainerClasses, "xl:grid-cols-2"),
+    spacing: cn("gap-4 gap-14 px-4 md:py-6 lg:gap-8 lg:py-16 lg:pb-24"),
   }
 
   return (
@@ -52,35 +52,8 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
         data-slot="contact-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <div className="flex flex-col items-start gap-6">
-          <Reveal>
-            <SectionEyebrow>Contato</SectionEyebrow>
-            <Heading className="mb-2" as="h2">
-              Vamos conversar <br className="hidden md:block" />{" "}
-              <span className="text-gold">sobre o seu caso</span>.
-            </Heading>
-            <Paragraph>
-              Descreva sua situação em poucas linhas. Eu respondo pessoalmente
-              e, se eu puder ajudar, combinamos os próximos passos juntos.
-            </Paragraph>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <PillButton {...WHATSAPP_LINK_PROPS} size="lg">
-              Falar no WhatsApp
-              <LuArrowUpRight className="size-5" />
-            </PillButton>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <Paragraph size="sm" className="max-w-xl text-muted-foreground">
-              {LGPD_NOTICE}
-            </Paragraph>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.1}>
-          <Card className="rounded-3xl border-border/70 bg-background shadow-none">
+        <Reveal delay={0.4}>
+          <Card className="w-fit rounded-3xl border-border/70 bg-background shadow-none xl:w-75/100">
             <CardContent className="flex flex-col gap-6 p-8">
               <Heading as="h3" size="sm" className="m-0">
                 Identificação profissional
@@ -91,16 +64,16 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
                   const Icon = item.icon
 
                   return (
-                    <li key={item.label} className="flex items-start gap-4">
-                      <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-gold-accent">
-                        <Icon className="size-5" />
+                    <li key={item.label} className="flex gap-6">
+                      <span className="mt-0.5 flex size-14 shrink-0 items-center justify-center rounded-full bg-muted text-gold-accent">
+                        <Icon className="size-7" />
                       </span>
 
-                      <span className="flex flex-col gap-0.5">
-                        <span className="text-sm tracking-[0.14em] text-muted-foreground uppercase">
+                      <span className="flex flex-col justify-center gap-1">
+                        <span className="text-base tracking-[0.14em] text-muted-foreground uppercase">
                           {item.label}
                         </span>
-                        <span className="text-sm text-foreground">
+                        <span className="text-base text-foreground">
                           {item.value}
                         </span>
                       </span>
@@ -111,6 +84,39 @@ function ContactSection({ className, ...props }: ContactSectionProps) {
             </CardContent>
           </Card>
         </Reveal>
+
+        <div className="flex flex-col items-start gap-6">
+          <Reveal
+            className="mt-12 w-full text-center md:mt-0 xl:text-left"
+            delay={0.4}
+          >
+            <SectionEyebrow>Contato</SectionEyebrow>
+            <Heading className="mb-2" as="h2">
+              Vamos conversar <br className="hidden md:block" />{" "}
+              <span className="text-gold">sobre o seu caso</span>.
+            </Heading>
+            <Paragraph>
+              Descreva sua situação em poucas linhas. Eu respondo pessoalmente
+              e, se eu puder ajudar, combinamos os próximos passos juntos.
+            </Paragraph>
+
+            <Reveal className="mt-8 mb-4" delay={0.4}>
+              <PillButton {...WHATSAPP_LINK_PROPS} size="lg">
+                Falar no WhatsApp
+                <LuArrowUpRight className="size-5" />
+              </PillButton>
+            </Reveal>
+
+            <Reveal className="text-center md:text-left" delay={0.4}>
+              <Paragraph
+                className="mx-auto max-w-lg text-muted-foreground md:max-w-full"
+                size="sm"
+              >
+                {LGPD_NOTICE}
+              </Paragraph>
+            </Reveal>
+          </Reveal>
+        </div>
       </div>
 
       <WaveDivider
