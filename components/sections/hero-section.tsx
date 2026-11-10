@@ -12,6 +12,7 @@ import { GlowCircle } from "@/components/glow-circle"
 
 import WaveDivider from "@/components/wave-divider"
 import { globalContainerClasses } from "@/utils/globals"
+import { SITE } from "@/lib/site"
 
 const HERO_BACKGROUND = "/images/books.jpg"
 
@@ -120,15 +121,15 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
         <div className="right-[4vw] bottom-0 order-1 xl:absolute 2xl:right-[5.5vw]">
           <Reveal delay={0.4}>
             <Image
-              className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[95dvh] xl:max-w-full"
-              src={HERO_PORTRAIT}
-              alt="Fotografia ilustrativa de um profissional em traje social"
+              className="mx-auto block max-h-[400px] w-auto max-w-4/5 object-cover md:max-w-3/5 lg:max-w-1/2 xl:hidden xl:max-h-[85dvh] xl:max-w-full"
+              src={HERO_PORTRAIT_MOBILE}
+              alt={SITE.name}
               width={1218}
               height={1292}
             />
             <Image
-              className="mx-auto block w-auto max-w-4/5 object-cover md:max-w-3/5 lg:max-w-1/2 xl:hidden xl:max-h-[85dvh] xl:max-w-full"
-              src={HERO_PORTRAIT_MOBILE}
+              className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[95dvh] xl:max-w-full"
+              src={HERO_PORTRAIT}
               alt={SITE.name}
               width={1218}
               height={1292}
