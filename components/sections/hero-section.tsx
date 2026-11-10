@@ -118,7 +118,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
         </div>
 
         <div className="right-[4vw] bottom-0 order-1 xl:absolute 2xl:right-[5.5vw]">
-          <Reveal delay={0.12}>
+          <Reveal delay={0.4}>
             <Image
               className="mx-auto hidden w-auto max-w-4/5 object-cover xl:block xl:max-h-[95dvh] xl:max-w-full"
               src={HERO_PORTRAIT}
@@ -129,7 +129,7 @@ function HeroSection({ className, ...props }: HeroSectionProps) {
             <Image
               className="mx-auto block w-auto max-w-4/5 object-cover md:max-w-3/5 lg:max-w-1/2 xl:hidden xl:max-h-[85dvh] xl:max-w-full"
               src={HERO_PORTRAIT_MOBILE}
-              alt="Fotografia ilustrativa de um profissional em traje social"
+              alt={SITE.name}
               width={1218}
               height={1292}
             />

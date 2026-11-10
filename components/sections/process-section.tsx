@@ -86,8 +86,6 @@ function ProcessSection({ className, ...props }: ProcessSectionProps) {
             <span className="text-gold">primeiro contato</span> ao fim.
           </Heading>
 
-          <Reveal delay={0.1}>
-            <div className="relative aspect-3/2 overflow-hidden rounded-3xl">
           <Paragraph className="text-1xl">
             Você nunca fica no escuro sobre o que está acontecendo nem sobre o
             que vai custar.

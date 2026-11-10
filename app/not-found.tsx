@@ -31,7 +31,7 @@ function NotFound() {
               Esta página não existe.
             </Heading>
 
-            <Paragraph tone="strong" className="m-0 max-w-xl">
+            <Paragraph tone="strong">
               O endereço acessado mudou ou nunca existiu. O conteúdo principal
               continua no site — volte para o início ou fale comigo direto pelo
               WhatsApp.

@@ -122,7 +122,7 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
           </Paragraph>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.4}>
           <ItemGroup className="grid gap-x-10 gap-y-2 md:grid-cols-2">
             {VALUES.map((value) => {
               const Icon = value.icon

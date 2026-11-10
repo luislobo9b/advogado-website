@@ -95,21 +95,18 @@ function SiteNavMobile({ className, ...props }: SiteNavMobileProps) {
         <LuMenu className="size-5" />
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-3/4 gap-6 bg-card">
+      <SheetContent className="w-3/4 gap-6 bg-card" side="right">
         <SheetHeader>
           <SheetTitle className="font-heading text-lg">Menu</SheetTitle>
-          <SheetDescription>
-            Navegue pelas seções do site ou fale direto no WhatsApp.
-          </SheetDescription>
         </SheetHeader>
 
-        <nav aria-label="Navegação móvel" className="flex flex-col gap-1 px-4">
+        <nav className="flex flex-col gap-1 px-4" aria-label="Navegação mobile">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
+              className="rounded-lg px-3 py-3 text-lg text-foreground transition-colors duration-400 hover:bg-muted"
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-lg text-foreground transition-colors duration-400 hover:bg-muted"
             >
               {link.label}
             </a>
