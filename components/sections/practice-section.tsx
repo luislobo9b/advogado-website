@@ -7,6 +7,9 @@ import { cn } from "cn"
 import { Reveal } from "@/components/reveal"
 import { Heading, Paragraph } from "@/components/typography"
 import { Card, CardContent } from "@/components/ui/card"
+import { LinearGradient } from "../linear-gradient"
+import { SectionEyebrow } from "../section-eyebrow"
+import { GlowCircle } from "../glow-circle"
 import { globalContainerClasses } from "@/utils/globals"
 
 const PRACTICE_AREAS = [
@@ -14,23 +17,62 @@ const PRACTICE_AREAS = [
     title: "Família e sucessões",
     description:
       "Divórcio, guarda dos filhos, pensão alimentícia, partilha de bens e inventário.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+    imgUrl: "/images/card-1.webp",
+    mobileImgUrl: "/images/card-mobile-1.webp",
   },
   {
     title: "Consumidor e cobranças",
     description:
       "Cobrança indevida, cartão, banco, empresa que não cumpre o combinado e revisão de contratos.",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85",
+    imgUrl: "/images/card-2.webp",
+    mobileImgUrl: "/images/card-mobile-2.webp",
   },
   {
     title: "Trabalhista",
     description:
       "Rescisão do contrato, férias, horas extras, verbas rescisórias e questões de vínculo.",
-    image:
-      "https://images.unsplash.com/photo-1521791055366-0d553872125f",
+    imgUrl: "/images/card-3.webp",
+    mobileImgUrl: "/images/card-mobile-3.webp",
   },
+] as const
+
+const IMG_SIZES = [
+  {
+    imgUrl: "card-1.webp",
+    width: 1024,
+    height: 1536,
+  },
+  {
+    imgUrl: "card-2.webp",
+    width: 1024,
+    height: 1536,
+  },
+  {
+    imgUrl: "card-3.webp",
+    width: 1024,
+    height: 1536,
+  },
+  {
+    imgUrl: "card-mobile-1.webp",
+    width: 1536,
+    height: 1024,
+  },
+  {
+    imgUrl: "card-mobile-2.webp",
+    width: 1536,
+    height: 1024,
+  },
+  {
+    imgUrl: "card-mobile-3.webp",
+    width: 1536,
+    height: 1024,
+  },
+] as const
+
+const GLOW_VALUES = [
+  cn("-top-75 -left-75 opacity-75"),
+  cn("-top-0 -left-75 opacity-30"),
+  cn("-top-75 -right-75 opacity-50"),
 ] as const
 
 type PracticeSectionProps = React.ComponentProps<"section">
@@ -39,8 +81,13 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
   const CLASSES = {
     section: cn("grid min-h-dvh place-items-center"),
     colors: cn("bg-card text-card-foreground"),
-    spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
     container: cn(globalContainerClasses),
+    spacing: cn("gap-4 py-4 md:py-6 lg:gap-8 lg:py-8"),
+  }
+
+  const bigCard = {
+    parent: cn("mt-0 lg:mt-[100px]"),
+    card: cn("-top-[0] h-auto lg:-top-[100px] lg:h-[calc(95%_+_100px)]"),
   }
 
   return (
@@ -66,44 +113,104 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
           </Paragraph>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <ul className="grid gap-6 md:grid-cols-3">
-            {PRACTICE_AREAS.map((area) => (
-              <li key={area.title}>
-                <Card className="group h-full overflow-hidden rounded-3xl border-0 surface-ink bg-background p-0 text-foreground shadow-none">
-                  <div className="relative aspect-4/3 overflow-hidden">
-                    <Image
-                      src={area.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-400 group-hover:scale-105"
+        <ul
+          className={cn(
+            `grid gap-6 md:grid-cols-1 lg:grid-cols-3`,
+            bigCard.parent
+          )}
+        >
+          {PRACTICE_AREAS.map((area, index) => {
+            const DELAY = 0.2
+            const isCenterCard = index === 1
+            const { width: imgWidth, height: imgHeight } = IMG_SIZES.find(
+              (img) => area.imgUrl.endsWith(img.imgUrl)
+            )!
+            const { width: mobileImgWidth, height: mobileImgHeight } =
+              IMG_SIZES.find((img) => area.mobileImgUrl.endsWith(img.imgUrl))!
+
+            return (
+              <li
+                key={area.title}
+                className="mx-auto max-w-[500px] px-4 lg:max-w-full lg:px-0"
+              >
+                <Card
+                  className={cn(
+                    `group surface-ink relative overflow-hidden rounded-3xl border-0 bg-transparent p-0 text-foreground shadow-none lg:min-h-fit`,
+                    !isCenterCard && "h-[calc(95%)]",
+                    isCenterCard && bigCard.card
+                  )}
+                >
+                  <Reveal
+                    delay={DELAY * index}
+                    className="relative grid h-full grid-rows-[1fr_1fr]"
+                  >
+                    <GlowCircle
+                      className={cn(
+                        `absolute z-2 h-150 w-150 mix-blend-lighten contrast-200`,
+                        GLOW_VALUES[index]
+                      )}
+                      color="#996f3d"
+                      start="0%"
+                      end="70%"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/55 to-transparent" />
-                  </div>
+                    <div className="absolute h-full w-full">
+                      <Image
+                        src={area.imgUrl}
+                        alt=""
+                        width={imgWidth}
+                        height={imgHeight}
+                        className="h-full w-full object-cover brightness-110 transition-transform duration-400 group-hover:scale-105"
+                      />
+                      <LinearGradient
+                        className="from-ink via-ink to-transparent"
+                        direction="top"
+                        viaPosition={25}
+                        via2Position={60}
+                      />
+                    </div>
 
-                  <CardContent className="flex flex-col gap-3 p-6">
-                    <Heading as="h3" size="sm" className="m-0">
-                      {area.title}
-                    </Heading>
+                    <CardContent className="relative z-1 flex flex-col gap-3 px-0">
+                      <div className="relative aspect-4/3 overflow-hidden">
+                        <Image
+                          src={area.mobileImgUrl}
+                          alt=""
+                          width={mobileImgWidth}
+                          height={mobileImgHeight}
+                          className="h-full w-full object-cover opacity-0 transition-transform duration-400 group-hover:scale-105"
+                        />
+                        <LinearGradient
+                          className="from-ink via-ink to-transparent opacity-0"
+                          direction="top"
+                          viaPosition={10}
+                          via2Position={100}
+                        />
+                      </div>
+                    </CardContent>
+                    <CardContent className="relative z-1 flex flex-col gap-3">
+                      <div className="mt-auto flex flex-col gap-3 pt-6 pb-8">
+                        <Heading as="h2" className="m-0 text-4xl">
+                          {area.title}
+                        </Heading>
 
-                    <Paragraph size="sm" className="m-0 text-muted-foreground">
-                      {area.description}
-                    </Paragraph>
+                        <Paragraph className="m-0 text-muted-foreground">
+                          {area.description}
+                        </Paragraph>
 
-                    <a
-                      href="#contato"
-                      className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-gold-accent underline-offset-4 transition-colors hover:text-gold-light hover:underline"
-                    >
-                      Falar sobre isso
-                      <LuArrowUpRight className="size-5" />
-                    </a>
-                  </CardContent>
+                        <a
+                          href="#contato"
+                          className="mt-1 inline-flex items-center gap-1.5 text-base font-medium text-gold-accent underline-offset-4 transition-colors hover:text-gold-light hover:underline"
+                        >
+                          Falar sobre isso
+                          <LuArrowUpRight className="size-5" />
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Reveal>
                 </Card>
               </li>
-            ))}
-          </ul>
-        </Reveal>
+            )
+          })}
+        </ul>
       </div>
     </section>
   )
