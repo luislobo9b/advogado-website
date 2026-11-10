@@ -52,8 +52,8 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
   const CLASSES = {
     section: cn("relative grid place-items-center"),
     colors: cn("bg-background/85 text-foreground"),
-    spacing: cn("gap-12 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
     container: cn(globalContainerClasses, "xl:grid-cols-2"),
+    spacing: cn("gap-4 gap-12 px-4 md:py-6 lg:gap-8 lg:py-16"),
   }
 
   return (
@@ -78,7 +78,7 @@ function FaqSection({ className, ...props }: FaqSectionProps) {
         data-slot="faq-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <Reveal>
+        <Reveal className="mt-12 w-full text-center md:mt-0 xl:text-left">
           <SectionEyebrow>Dúvidas</SectionEyebrow>
           <Heading className="mb-2" as="h2">
             Perguntas que aparecem antes da <br className="hidden md:block" />
