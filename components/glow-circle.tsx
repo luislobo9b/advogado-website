@@ -35,7 +35,7 @@ function GlowCircle({
   return (
     <div
       data-slot="glow-circle"
-      className={cn(className)}
+      className={cn("absolute mix-blend-lighten", className)}
       style={gradientStyle}
       {...props}
     />

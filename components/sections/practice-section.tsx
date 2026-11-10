@@ -146,7 +146,7 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
                   >
                     <GlowCircle
                       className={cn(
-                        `absolute z-2 h-150 w-150 mix-blend-lighten contrast-200`,
+                        `z-2 h-150 w-150 contrast-200`,
                         GLOW_VALUES[index]
                       )}
                       color="#996f3d"

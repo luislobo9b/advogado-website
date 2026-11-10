@@ -98,21 +98,21 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
       />
 
       <GlowCircle
-        className="absolute -top-75 -left-75 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        className="-top-75 -left-75 h-150 w-150 opacity-40 contrast-200"
         color="#996f3d"
         start="0%"
         end="70%"
       />
 
       <GlowCircle
-        className="absolute -right-75 bottom-0 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        className="-right-75 bottom-0 h-150 w-150 opacity-40 contrast-200"
         color="#996f3d"
         start="0%"
         end="70%"
       />
 
       <GlowCircle
-        className="absolute -top-35 -left-35 h-100 w-100 opacity-3 mix-blend-lighten contrast-200"
+        className="-top-35 -left-35 h-100 w-100 opacity-3 contrast-200"
         color="#996f3d"
         start="0%"
         end="70%"
