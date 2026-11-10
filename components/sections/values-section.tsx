@@ -13,6 +13,7 @@ import { cn } from "cn"
 
 const VALUES_BACKGROUND = "/images/judges-gavel.jpg"
 
+import { GlowCircle } from "@/components/glow-circle"
 import { Reveal } from "@/components/reveal"
 import { SectionEyebrow } from "@/components/section-eyebrow"
 import { Heading, Paragraph } from "@/components/typography"
@@ -70,11 +71,12 @@ type ValuesSectionProps = React.ComponentProps<"section">
 
 function ValuesSection({ className, ...props }: ValuesSectionProps) {
   const CLASSES = {
-    section: cn("relative grid min-h-[105dvh] place-items-center"),
-    colors: cn("surface-ink bg-background/40 text-foreground"),
+    section: cn(
+      "relative grid min-h-[105dvh] place-items-center overflow-hidden"
     ),
-    spacing: cn("gap-14 px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-36"),
+    colors: cn("surface-ink bg-background/40 text-foreground"),
     container: cn(globalContainerClasses, "xl:grid-cols-2"),
+    spacing: cn("gap-4 gap-14 px-4 lg:gap-12"),
   }
 
   return (
@@ -95,6 +97,27 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
         }}
       />
 
+      <GlowCircle
+        className="absolute -top-75 -left-75 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
+      />
+
+      <GlowCircle
+        className="absolute -right-75 bottom-0 h-150 w-150 opacity-40 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
+      />
+
+      <GlowCircle
+        className="absolute -top-35 -left-35 h-100 w-100 opacity-3 mix-blend-lighten contrast-200"
+        color="#996f3d"
+        start="0%"
+        end="70%"
+      />
+
       <div aria-hidden className="absolute inset-0 -z-10">
         <Image
           src={VALUES_BACKGROUND}
@@ -110,7 +133,7 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
         data-slot="values-section-container"
         className={cn(CLASSES.container, CLASSES.spacing)}
       >
-        <Reveal>
+        <Reveal className="mt-25 w-full text-center md:mt-0 xl:text-left">
           <SectionEyebrow>Valores</SectionEyebrow>
           <Heading className="mb-2" as="h2">
             O que você pode esperar de um{" "}
@@ -136,16 +159,16 @@ function ValuesSection({ className, ...props }: ValuesSectionProps) {
                 >
                   <ItemMedia
                     variant="icon"
-                    className="size-10 rounded-full bg-foreground/10 text-gold-accent [&_svg]:size-5"
+                    className="size-14 rounded-full bg-foreground/10 text-gold-accent"
                   >
-                    <Icon />
+                    <Icon className="size-7" />
                   </ItemMedia>
 
                   <ItemContent className="gap-1">
                     <ItemTitle className="font-heading text-2xl text-foreground">
                       {value.title}
                     </ItemTitle>
-                    <ItemDescription className="text-sm text-muted-foreground">
+                    <ItemDescription className="line-clamp-none text-sm text-muted-foreground">
                       {value.description}
                     </ItemDescription>
                   </ItemContent>
