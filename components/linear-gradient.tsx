@@ -1,28 +1,30 @@
 import { cn } from "cn"
 
+type GradientDirection =
+  | "left"
+  | "top"
+  | "right"
+  | "bottom"
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+
 type LinearGradientProps = {
-  direction?:
-    | "left"
-    | "top"
-    | "right"
-    | "bottom"
-    | "top-left"
-    | "top-right"
-    | "bottom-left"
-    | "bottom-right"
-  viaPosition: number
-  via2Position: number
+  direction?: GradientDirection
+  solidUntil: number
+  fadeUntil: number
 } & React.ComponentProps<"div">
 
 function LinearGradient({
   direction = "left",
-  viaPosition,
-  via2Position,
+  solidUntil,
+  fadeUntil,
   className,
   style,
   ...props
 }: LinearGradientProps) {
-  const directionMap = {
+  const directionMap: Record<GradientDirection, string> = {
     left: "bg-linear-to-l",
     top: "bg-linear-to-t",
     right: "bg-linear-to-r",
@@ -39,7 +41,7 @@ function LinearGradient({
       className={cn("absolute inset-0", directionMap[direction], className)}
       style={
         {
-          "--tw-gradient-stops": `var(--tw-gradient-position), var(--tw-gradient-from) 0%, var(--tw-gradient-via) ${viaPosition}%, var(--tw-gradient-to) ${via2Position}%`,
+          "--tw-gradient-stops": `var(--tw-gradient-position), var(--tw-gradient-from) 0%, var(--tw-gradient-via) ${solidUntil}%, var(--tw-gradient-to) ${fadeUntil}%`,
           ...style,
         } as React.CSSProperties
       }

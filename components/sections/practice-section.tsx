@@ -164,8 +164,8 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
                       <LinearGradient
                         className="from-ink via-ink to-transparent"
                         direction="top"
-                        viaPosition={25}
-                        via2Position={60}
+                        solidUntil={25}
+                        fadeUntil={60}
                       />
                     </div>
 
@@ -181,8 +181,8 @@ function PracticeSection({ className, ...props }: PracticeSectionProps) {
                         <LinearGradient
                           className="from-ink via-ink to-transparent opacity-0"
                           direction="top"
-                          viaPosition={10}
-                          via2Position={100}
+                          solidUntil={10}
+                          fadeUntil={100}
                         />
                       </div>
                     </CardContent>
