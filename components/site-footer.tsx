@@ -23,9 +23,13 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
   return (
     <footer
       data-slot="site-footer"
-      className={cn("surface-ink bg-background text-foreground", className)}
+      className={cn(
+        "surface-ink relative bg-background text-foreground",
+        className
+      )}
       {...props}
     >
+      <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pt-12 pb-4 lg:grid-cols-3 lg:gap-4 lg:px-4">
         <div className="flex flex-col gap-4">
           <span className="font-heading text-2xl font-semibold">
             {SITE.name}
@@ -82,20 +86,17 @@ function SiteFooter({ className, ...props }: SiteFooterProps) {
 
       <Separator />
 
-      {/*
-        * `pb-20` no desktop reserva a faixa do botão fixo do WhatsApp:
-        * sem isso, o botão cobre o link "Política de privacidade".
-        */}
+      <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 pt-6 pb-8 text-center text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
         <Paragraph size="sm" className="m-0">
-          © {year} {SITE.name} — {SITE.role}. Todos os direitos reservados.
+          © {year} {SITE.name} — {SITE.role}. Todos os direitos reservados.{" "}
+          <br />
+          <Link
+            className="inline underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            href="/privacidade"
+          >
+            Política de privacidade
+          </Link>
         </Paragraph>
-
-        <Link
-          href="/privacidade"
-          className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
-        >
-          Política de privacidade
-        </Link>
       </div>
     </footer>
   )
